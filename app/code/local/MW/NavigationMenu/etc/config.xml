@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_NavigationMenu>
+            <version>1.3</version>
+        </MW_NavigationMenu>
+    </modules>
+    <frontend>
+        <routers>
+            <navigationmenu>
+                <use>standard</use>
+                <args>
+                    <module>MW_NavigationMenu</module>
+                    <frontName>navigationmenu</frontName>
+                </args>
+            </navigationmenu>
+        </routers>
+        <layout>
+            <updates>
+                <navigationmenu>
+                    <file>mw_navigationmenu.xml</file>
+                </navigationmenu>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <MW_NavigationMenu>
+                    <files>
+                        <default>MW_NavigationMenu.csv</default>
+                    </files>
+                </MW_NavigationMenu>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+			<navigationmenu>
+				<use>admin</use>
+				<args>
+					<module>MW_NavigationMenu</module>
+					<frontName>navigationmenu</frontName>
+				</args>
+			</navigationmenu>
+        </routers>
+    </admin>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <MW_NavigationMenu>
+                    <files>
+                        <default>MW_NavigationMenu.csv</default>
+                    </files>
+                </MW_NavigationMenu>
+            </modules>
+        </translate>
+		<menu>
+			<navigationmenu module="navigationmenu">
+				<title>Navigation Menu</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<menuitems module="navigationmenu">
+						<title>Manage Menu Categories</title>
+						<sort_order>0</sort_order>
+						<action>navigationmenu/adminhtml_menuitems</action>
+					</menuitems>
+					<contents module="navigationmenu">
+						<title>Manage Menu Contents</title>
+						<sort_order>1</sort_order>
+						<action>navigationmenu/adminhtml_contents</action>
+					</contents>
+					<config module="navigationmenu">
+						<title>Configuration</title>
+						<sort_order>2</sort_order>
+						<action>adminhtml/system_config/edit/section/navigationmenu</action>
+					</config>
+				</children>
+			</navigationmenu>
+		</menu>
+		<acl>
+			<!-- <resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<MW_NavigationMenu>
+							<title>NavigationMenu Module</title>
+							<sort_order>10</sort_order>
+						</MW_NavigationMenu>
+					</children>
+				</admin>
+			</resources> -->
+			<resources>
+			    <all>
+					<title>Allow Everything</title>
+			    </all>
+                <admin>
+                    <children>
+					    <navigationmenu module="navigationmenu">
+							<title>Navigation Menu</title>
+							<sort_order>71</sort_order>               
+							<children>
+								<menuitems module="navigationmenu">
+									<title>Manage Menu Categories</title>
+									<sort_order>0</sort_order>
+									<action>navigationmenu/adminhtml_menuitems</action>
+								</menuitems>
+							    <contents module="navigationmenu">
+							        <title>Manage Menu Contents</title>
+								    <sort_order>1</sort_order>
+									<action>navigationmenu/adminhtml_contents</action>
+								</contents>
+								<config module="navigationmenu">
+									<title>Configuration</title>
+									<sort_order>2</sort_order>
+									<action>adminhtml/system_config/edit/section/navigationmenu</action>
+								</config>
+							</children>
+						</navigationmenu>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <navigationmenu translate="title" module="navigationmenu">
+                                            <title>navigationmenu Section</title>
+                                        </navigationmenu>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+		</acl>
+		<layout>
+			<updates>
+				<navigationmenu>
+					<file>mw_navigationmenu.xml</file>
+				</navigationmenu>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <navigationmenu>
+                <class>MW_NavigationMenu_Model</class>
+                <resourceModel>navigationmenu_mysql4</resourceModel>
+            </navigationmenu>
+            <navigationmenu_mysql4>
+                <class>MW_NavigationMenu_Model_Mysql4</class>
+                <entities>
+                    <menuitems>
+                        <table>mw_navigationmenu_menuitems</table>
+                    </menuitems>
+                    <contents>
+                        <table>mw_navigationmenu_contents</table>
+                    </contents>
+                </entities>
+            </navigationmenu_mysql4>
+        </models>
+        <resources>
+            <navigationmenu_setup>
+                <setup>
+                    <module>MW_NavigationMenu</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </navigationmenu_setup>
+            <navigationmenu_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </navigationmenu_write>
+            <navigationmenu_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </navigationmenu_read>
+        </resources>
+        <blocks>
+            <navigationmenu>
+                <class>MW_NavigationMenu_Block</class>
+            </navigationmenu>
+        </blocks>
+        <helpers>
+            <navigationmenu>
+                <class>MW_NavigationMenu_Helper</class>
+            </navigationmenu>
+        </helpers>
+		<events>
+			<controller_front_init_before>
+	            	<observers>
+	                    <navigationmenu>
+	                        <type>singleton</type>
+	                        <class>navigationmenu/observer</class>
+	                        <method>checkLicense</method>
+	                    </navigationmenu>
+	                </observers>
+			</controller_front_init_before>    
+		</events>
+    </global>
+    <default>
+        <navigationmenu>
+            <general>
+                <truncate_description>200</truncate_description>
+            </general>
+        </navigationmenu>
+    </default>
+</config>

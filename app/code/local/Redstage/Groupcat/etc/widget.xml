@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<widgets>
+    <groupcat_procats type="groupcat/procats" module="groupcat" translate="label">
+        <name>Product List and Grid Catalog</name>
+        <description type="desc">Product Catalog From Multiple Categories</description>
+
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>5</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <column_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value></value>
+                <label>Column count</label>
+                <type>text</type>
+            </column_count>
+            <promotion_only translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <value></value>
+                <label>View Promotion Items Only</label>
+                <type>select</type>
+                <value>0</value>
+                <values>
+                    <grid translate="label">
+                        <value>0</value>
+                        <label>No</label>
+                    </grid>
+                    <list translate="label">
+                        <value>1</value>
+                        <label>Yes</label>
+                    </list>
+                </values>
+            </promotion_only>
+            <order_by translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <value>0</value>
+                <label>Order by</label>
+                <type>select</type>
+                <value>0</value>
+                <values>
+                    <random translate="label">
+                        <value>0</value>
+                        <label>random</label>
+                    </random>
+                    <alphabetical translate="label">
+                        <value>1</value>
+                        <label>Alphabetical</label>
+                    </alphabetical>
+                    <position translate="label">
+                        <value>2</value>
+                        <label>Position</label>
+                    </position>
+                </values>
+            </order_by>
+            <template translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>catalog/product/widget/groupcat/list.phtml</value>
+                <values>
+                    <grid translate="label">
+                        <value>catalog/product/widget/groupcat/grid.phtml</value>
+                        <label>Products Grid Template</label>
+                    </grid>
+                    <list translate="label">
+                        <value>catalog/product/widget/groupcat/list.phtml</value>
+                        <label>Products List Template</label>
+                    </list>
+                    <newitem translate="label">
+                        <value>catalog/product/widget/groupcat/newitems.phtml</value>
+                        <label>New Items Template</label>
+                    </newitem>
+                </values>
+            </template>
+            <category_ids translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value></value>
+                <label>Category Ids</label>
+                <type>text</type>
+            </category_ids>
+            <widget_name translate="label">
+                <visible>1</visible>
+                <value>5</value>
+                <label>Widget Label</label>
+                <type>text</type>
+            </widget_name>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </groupcat_procats>
+
+
+
+    <groupcat_cats type="groupcat/cats" module="groupcat" translate="label">
+        <name>Categories List and Grid Catalog</name>
+        <description type="desc">Show Categories in Grid</description>
+
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+
+            <column_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value></value>
+                <label>Column count</label>
+                <type>text</type>
+            </column_count>
+
+            <template translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>catalog/product/widget/groupcat/catsgrid.phtml</value>
+                <values>
+                    <grid translate="label">
+                        <value>catalog/product/widget/groupcat/catsgrid.phtml</value>
+                        <label>Products Grid Template</label>
+                    </grid>
+                </values>
+            </template>
+            <category_id translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value></value>
+                <label>Parent Category Id</label>
+                <type>text</type>
+            </category_id>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </groupcat_cats>
+
+</widgets>

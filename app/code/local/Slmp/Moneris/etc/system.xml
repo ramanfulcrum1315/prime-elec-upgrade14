@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+ <config>
+    <sections>
+ <!-- payment tab -->
+         <payment>
+             <groups>
+ <!-- newmodule fieldset -->
+                 <moneris translate="label" module="paygate">
+ <!-- will have title 'New Module' -->
+                     <label>SecureBuy Moneris</label>
+ <!-- position between other payment methods -->
+                     <sort_order>670000</sort_order>
+ <!-- do not show this configuration options in store scope -->
+                     <show_in_default>1</show_in_default>
+                     <show_in_website>1</show_in_website>
+                     <show_in_store>0</show_in_store>
+                     <fields>
+ <!-- is this payment method active for the website? -->
+                         <active translate="label">
+ <!-- label for the field -->
+                             <label>Enabled</label>
+ <!-- input type for configuration value -->
+                             <frontend_type>select</frontend_type>
+ <!-- model to take the option values from -->
+                             <source_model>adminhtml/system_config_source_yesno</source_model>
+ <!-- field position -->    <sort_order>1</sort_order>
+ <!-- do not show this field in store scope -->
+                             <show_in_default>1</show_in_default>
+                             <show_in_website>1</show_in_website>
+                             <show_in_store>0</show_in_store>
+                         </active>
+						 <title translate="label">
+                             <label>Title</label>
+                             <frontend_type>text</frontend_type>
+                             <sort_order>2</sort_order>
+                             <show_in_default>1</show_in_default>
+                             <show_in_website>1</show_in_website>
+                             <show_in_store>0</show_in_store>
+                         </title>
+             			 <payment_country translate="label">
+                             <label>Payment Gateway</label>
+                             <frontend_type>select</frontend_type>
+                             <source_model>moneris/source_paymentcountry</source_model>
+                             <sort_order>3</sort_order>
+                             <show_in_default>1</show_in_default>
+                             <show_in_website>1</show_in_website>
+                             <show_in_store>0</show_in_store>
+                         </payment_country>
+					      <store_id translate="label">
+							<label>Store ID</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</store_id>
+						<api_token translate="label">
+							<label>API Token</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</api_token>
+						<payments_type translate="label">
+							<label>Payment Action</label>
+							<frontend_type>select</frontend_type>
+							<source_model>moneris/source_pmlist</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</payments_type>
+						 <order_status translate="label">
+                             <label>New Order Status</label>
+                             <frontend_type>select</frontend_type>
+                             <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                             <sort_order>7</sort_order>
+                             <show_in_default>1</show_in_default>
+                             <show_in_website>1</show_in_website>
+                             <show_in_store>0</show_in_store>
+                         </order_status>
+
+						<tests translate="label">
+							<label>Test Mode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</tests>
+						 <currency translate="label">
+							<label>Accepted Currency</label>
+							<frontend_type>select</frontend_type>
+							<source_model>moneris/source_currencylist</source_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</currency>
+						  <debug translate="label">
+                            <label>Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </debug>
+
+						<cctypes translate="label">
+							<label>Credit Card Types</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_cctype</source_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</cctypes>
+					      <allowspecific translate="label">
+                            <label>Payment from Applicable Countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>160</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>170</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+						 <min_order_total translate="label">
+                            <label>Minimum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+						<sort_order translate="label">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>192</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<frontend_class>validate-number</frontend_class>
+						</sort_order>
+			            <heading_cvd translate="label">
+							<label>CVD</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>193</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</heading_cvd>
+						 <useccv translate="label">
+                            <label>Credit Card Verification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>194</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </useccv>
+						<cvd_response translate="label">
+							<label>CVD Passing Parameters</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_cvdlist</source_model>
+							<sort_order>195</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><useccv>1</useccv></depends>
+						</cvd_response>
+					  <heading_3dsecure translate="label">
+						<label>3D Secure</label>
+						<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+						<sort_order>201</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+					  </heading_3dsecure>
+					 <secure_3d translate="label">
+						<label>3D Secure Card Validation</label>
+						<frontend_type>select</frontend_type>
+						<source_model>adminhtml/system_config_source_yesno</source_model>
+						<sort_order>202</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>0</show_in_store>
+					</secure_3d>
+					<merchant_3d_mode translate="label">
+						<label>3D Secure Mode</label>
+						<frontend_type>select</frontend_type>
+						<source_model>moneris/source_modelist</source_model>
+						<sort_order>203</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>0</show_in_store>
+						<depends><secure_3d>1</secure_3d></depends>
+					  </merchant_3d_mode>
+					<cavv_response_code translate="label">
+							<label>CAVV Response Code</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_cavvlist</source_model>
+							<sort_order>211</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><secure_3d>1</secure_3d></depends>
+						</cavv_response_code>
+						<avs_status translate="label">
+							<label>Avs Verification</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>212</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</avs_status>
+						<heading_avs translate="label">
+							<label>AVS Canada</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>212</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<depends><payment_country>CA</payment_country></depends>
+						</heading_avs>
+						<avs_vm_response_code translate="label">
+                            <label>AVS Response Code for Visa/Mastercard</label>
+                            <comment><![CDATA[<style>#payment_moneris_avs_vm_response_code{width:433px}</style>]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>moneris/source_VMAVSlist</source_model>
+                            <sort_order>213</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><payment_country>CA</payment_country></depends>
+                        </avs_vm_response_code>
+
+						<avs_d_response_code translate="label">
+							<label>AVS Response Code for Discover</label>
+							<comment><![CDATA[<style>#payment_moneris_avs_d_response_code{width:433px}</style>]]></comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_DAVSlist</source_model>
+							<sort_order>214</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><payment_country>CA</payment_country></depends>
+						</avs_d_response_code>
+						<avs_aj_response_code translate="label">
+							<label>AVS Response Code for American Express/JCB </label>
+							<comment><![CDATA[<style>#payment_moneris_avs_aj_response_code{width:433px}</style>]]></comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_AJAVSlist</source_model>
+							<sort_order>215</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><payment_country>CA</payment_country></depends>
+						</avs_aj_response_code>	
+						<heading_avs_us translate="label">
+							<label>AVS US</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>212</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<depends><payment_country>US</payment_country></depends>
+						</heading_avs_us>
+						<us_avs_vdj_response_code translate="label">
+							<label>AVS Response Code for Visa/Dicover/JCB</label>
+							<comment><![CDATA[<style>#payment_moneris_us_avs_vdj_response_code{width:433px}</style>]]></comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_USVDJAVSlist</source_model>
+							<sort_order>213</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><payment_country>US</payment_country></depends>
+						</us_avs_vdj_response_code>
+						<us_avs_a_response_code translate="label">
+							<label>AVS Response Code for American Express</label>
+							<comment><![CDATA[<style>#payment_moneris_us_avs_a_response_code{width:433px}</style>]]></comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_USAAVSlist</source_model>
+							<sort_order>214</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><payment_country>US</payment_country></depends>
+						</us_avs_a_response_code>
+						<us_avs_m_response_code translate="label">
+							<label>AVS Response Code for Mastercard</label>
+							<comment><![CDATA[<style>#payment_moneris_us_avs_m_response_code{width:433px}</style>]]></comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>moneris/source_USMAVSlist</source_model>
+							<sort_order>214</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends><payment_country>US</payment_country></depends>
+						</us_avs_m_response_code>
+                     </fields>
+                 </moneris>
+             </groups>
+         </payment>
+     </sections>
+ </config>

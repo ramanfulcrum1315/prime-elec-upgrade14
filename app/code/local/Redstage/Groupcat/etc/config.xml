@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Redstage_Groupcat>
+            <version>1.0</version>
+        </Redstage_Groupcat>
+    </modules>
+
+    <global>
+        <helpers>
+            <groupcat>
+                <class>Redstage_Groupcat_Helper</class>
+            </groupcat>
+        </helpers>
+        <blocks>
+            <groupcat>
+                <class>Redstage_Groupcat_Block</class>
+            </groupcat>
+        </blocks>
+        <models>
+            <groupcat>
+                <class>Redstage_Groupcat_Model</class>
+            </groupcat>
+        </models>
+    </global>
+
+    <frontend>
+        <routers>
+            <groupcat>
+                <use>standard</use>
+                <args>
+                    <module>Redstage_Groupcat</module>
+                    <frontName>groupcat</frontName>
+                </args>
+            </groupcat>
+        </routers>
+    </frontend>
+
+    <admin>
+        <routers>
+            <groupcat_admin>
+                <use>admin</use>
+                <args>
+                    <module>Redstage_Groupcat</module>
+                    <frontName>groupcat_admin</frontName>
+                </args>
+            </groupcat_admin>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <groupcat_options>
+                                            <title>Redstage Groupcat Module Section</title>
+                                        </groupcat_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

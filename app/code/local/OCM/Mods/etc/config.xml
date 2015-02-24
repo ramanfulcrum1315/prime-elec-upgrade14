@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OCM_Mods>
+            <version>0.1.0</version>
+        </OCM_Mods>
+    </modules>
+    <global>
+        <blocks>
+            <!--
+			<checkout>
+                <rewrite>
+					<links>OCM_Mods_Block_Checkout_Links</links>
+                </rewrite>
+			</checkout>
+			-->
+			<adminhtml>
+			
+				<rewrite>
+					<catalog_product_grid>OCM_Mods_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+				</rewrite>
+
+				<rewrite>
+					<sales_order_grid>OCM_Mods_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+				</rewrite>
+
+			</adminhtml>
+        </blocks>
+        <helpers>
+            <mods>
+                <class>OCM_Mods_Helper</class>
+            </mods>
+            <wishlist>
+				<rewrite>
+					<data>OCM_Mods_Helper_Wishlist_Data</data>
+				</rewrite>
+            </wishlist>
+        </helpers>
+
+        <models>
+            <mods>
+                <class>OCM_Mods_Model</class>
+                <resourceModel>mods_resource</resourceModel>
+            </mods>
+            <mods_resource>
+                <class>OCM_Mods_Model_Resource</class>
+            </mods_resource>
+        </models>
+        <resources>
+            <mods_setup>
+                <setup>
+                    <module>OCM_Mods</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mods_setup>
+            <mods_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mods_write>
+            <mods_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mods_read>
+        </resources>
+    </global>
+
+    <frontend>
+        <events>
+            <payment_method_is_active>
+                <observers>
+                    <check_payment_method>
+                        <class>mods/observer</class>
+                        <method>checkPaymentMethod</method>
+                    </check_payment_method>
+                </observers>
+            </payment_method_is_active>
+        </events>
+    </frontend>
+
+
+    <!-- Removes legacy m2e menu item did not make dependent of module appears to nativly load after will make removal of legacy m2e module easier -->
+    <adminhtml>
+        <menu>
+            <m2e>
+                <disabled>1</disabled>
+            </m2e>
+        </menu>
+    </adminhtml>
+    
+</config>

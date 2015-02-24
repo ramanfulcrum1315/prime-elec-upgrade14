@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<config>
+    <tabs>
+		<mageworld translate="label">
+			<label>Mage World</label>
+			<sort_order>300</sort_order>
+		</mageworld>
+	</tabs>
+    <sections>
+        <navigationmenu module="navigationmenu" translate="label">
+            <label>Navigation Menu</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>mageworld</tab> 
+			<groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable Mega Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <storeview_active translate="label">
+                            <label>Which store view is active?</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>navigationmenu/configuration_storeviewoption</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </storeview_active>
+                        <top_possition translate="label">
+                            <label>Display Top Menu (Horizontal)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_possition>
+                        <top_animation translate="label">
+                            <label>Top Menu animation effect:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>navigationmenu/configuration_topanimationoption</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_animation>
+                        <top_animation_speed translate="label">
+                            <label>Top Menu animation speed:</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>navigationmenu/configuration_topspeedoption</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>         
+                            <comment>fast or slow</comment>
+                        </top_animation_speed>
+                        <left_possition translate="label">
+                            <label>Display Vertical Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </left_possition>
+                        <left_animation translate="label">
+                            <label>Vertical Menu animation effect:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>navigationmenu/configuration_topanimationoption</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </left_animation>
+                        <left_animation_speed translate="label">
+                            <label>Vertical Menu animation speed:</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>navigationmenu/configuration_topspeedoption</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>fast or slow</comment>
+                        </left_animation_speed>
+                        <number_category translate="label">
+                        	<label>Maximum # of subcategories</label>
+                        	<sort_order>9</sort_order>
+                        	<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>(Apply to 'display subcategories only' option)</comment>
+                        </number_category>
+                        <view_more_category translate="label">
+                        	<label>Show 'more' option when more than maximum # of subcategories exist</label>
+                        	<frontend_type>select</frontend_type>
+                        	<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>10</sort_order>
+                        	<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>(Apply to 'display subcategories only' option)</comment>
+                        </view_more_category>
+                        <number_product translate="label">
+                        	<label>Maximum # of products to list</label>
+                        	<sort_order>11</sort_order>
+                        	<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>(Apply to 'display subcategories and products' option)</comment>
+                        </number_product>
+                        <view_more_product translate="label">
+                        	<label>Show 'more' option when more than maximum # of products exist</label>
+                        	<frontend_type>select</frontend_type>
+                        	<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>12</sort_order>
+                        	<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>(Apply to 'display subcategories and products' option)</comment>
+                        </view_more_product>
+                        <truncate_description translate="label">
+                        	<label>Maximum # of characters for SKU description</label>
+                        	<sort_order>13</sort_order>
+                        	<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </truncate_description>
+                    </fields>
+                </general>
+            </groups>
+        </navigationmenu>
+    </sections>
+</config>

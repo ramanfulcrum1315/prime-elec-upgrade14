@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<emaildirect translate="title" module="emaildirect">
+										<title>EmailDirect Configuration</title>
+									</emaildirect>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<translate>
+		<modules>
+			<EmailDirect_Integration>
+				<files>
+					<default>EmailDirect_Integration.csv</default>
+				</files>
+			</EmailDirect_Integration>
+		</modules>
+	</translate>
+</config>
