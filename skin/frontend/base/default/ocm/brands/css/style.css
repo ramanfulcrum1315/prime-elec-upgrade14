@@ -1,0 +1,87 @@
+
+.brands-index-index .page-title {
+    background: 0 none;
+    border: 0 none;
+    padding-bottom: 10px;
+}
+.brands-index-index .page-title h2{
+    color:#000;
+    border-bottom: 1px solid #666;
+}
+
+
+.featured-container {
+    border-bottom: 1px solid #E8E5DF;
+    border-top: 1px solid #E8E5DF;
+    margin: 0 0 20px;
+    padding: 15px 0;
+}
+.brands-grid, .featured-brands {
+    padding-bottom: 20px;
+}
+.brands-grid .brand-group, .featured-brands li {
+    float: left;
+    padding-left: 4%;
+    width: 16%;
+}
+.featured-brands {
+    padding-bottom: 0;
+}
+.featured-brands li {
+    padding-left: 0;
+    text-align: center;
+    width: 20%;
+}
+.featured-brands li img {
+    line-height: 155px;
+    max-height: 150px;
+    max-width: 150px;
+}
+.brand-content {
+    padding: 0;
+}
+.brand-content img {
+    margin: 5px;
+}
+
+
+.brands-grid:after, .featured-brands:after, .brand-content:after, .brand_key:after, .brands-icon-grid:after  {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+/* icons view */
+.brand_key {
+    border-bottom: 1px solid #E8E5DF;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+}
+.brand_key li {
+    float: left;
+    margin-right: 10px
+}
+.brands-icon-grid li {
+    width: 82px;
+    height: 82px;
+    float: left;
+    text-align: center;
+    padding: 3px 3px;
+}
+.brands-icon-grid li .brand-missing-icon {
+    line-height: 82px;
+    vertical-align: middle;
+    width: 82px;
+    height: 82px;
+    overflow: hidden;
+    background: #EFEFEF;
+}
+.brands-icon-grid li .brand-missing-icon span {
+    color: #9ACA41;
+    text-decoration: none;
+    font-size: .8em;
+}

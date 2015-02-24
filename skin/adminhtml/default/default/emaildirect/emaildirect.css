@@ -1,0 +1,22 @@
+ul.tabs a.emaildirect-section:hover { background-color:#D8E6E6; background-image:url(images/tabs_link_over_bg.gif); }
+
+ul.tabs a.emaildirect-section,
+ul.tabs a.emaildirect-section:hover {border-bottom:none; padding:0.5em 0.5em 0 1.5em; text-indent:-9999px;}
+
+ul.tabs a.emaildirect-section span,
+ul.tabs a.emaildirect-section:hover span { background:url(emaildirect-tab.png) no-repeat 0 0; overflow:hidden; padding:0; width:120px; height:24px;}
+
+ul.tabs a.emaildirect-section.active, ul.tabs a.emaildirect-section.active:hover {background-color: white;}
+
+h3.emaildirect-header { background:url(emaildirect-tab.png) no-repeat 0 0; height: 24px; overflow:hidden; padding:0; width:120px; text-indent:-9999px; }
+
+/*h3.mailchimp-header { background:url(emaildirect-connected-ebizmarts-title.png) no-repeat 0 0; height: 64px; overflow:hidden; padding:0; width:200px; text-indent:-9999px; }*/
+
+fieldset#emaildirect_general {background:url(emaildirect-section-background.png) no-repeat right top; }
+
+div.emaildirect-notice{
+background:#EAF0EE;
+border:1px solid #CCCCCC;
+margin-bottom:10px;
+padding:11px 0 0 10px;
+}

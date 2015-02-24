@@ -1,0 +1,20 @@
+.footer-links,
+.collateral-tabs .tabs,
+.more-views ul { zoom:1 }
+
+/*
+ * Left Nav
+ */
+ #left-nav li ul {border: 1px solid #333333;}
+
+/*
+ * Product Page
+ */
+.product-collateral { padding:10px 8px; }
+.collateral-tabs .tab-content { width:412px;/* padding:0*/}
+
+/*
+ * Cart Page
+ */
+button.btn-proceed-checkout {height: 57px !important;}
+.cart .cart-collaterals {width: 333px;}
