@@ -26,49 +26,21 @@
 
 
 /**
- * Abstract payment block
+ * Pbridge payment block
  *
  * @category    Enterprise
  * @package     Enterprise_PBridge
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-abstract class Enterprise_PBridge_Block_Checkout_Payment_Abstract extends Mage_Payment_Block_Form
+class Enterprise_PBridge_Block_Adminhtml_Sales_Order_Create_Pbridge extends Mage_Payment_Block_Form
 {
     /**
-     * Code of payment method
-     *
-     * @var string
+     * Constructor
      */
-    protected $_code;
-
-    /**
-     * Default template for payment form block
-     *
-     * @var string
-     */
-    protected $_template = 'pbridge/checkout/payment/pbridge.phtml';
-
-    /**
-     * Return payment method code
-     *
-     *  @return string
-     */
-    public function getCode()
+    protected function _construct()
     {
-        if (!$this->_code) {
-            Mage::throwException(Mage::helper('enterprise_pbridge')->__('Can not retrieve requested gateway code'));
-        }
-        return $this->_code;
-    }
-
-    /**
-     * Return redirect url for Payment Bridge application
-     *
-     * @return string
-     */
-    public function getRedirectUrl()
-    {
-        return $this->getUrl('enterprise_pbridge/pbridge/result', array('_current' => true));
+        parent::_construct();
+        $this->setTemplate('enterprise/pbridge/sales/order/create/pbridge.phtml');
     }
 
     /**
@@ -80,8 +52,7 @@ abstract class Enterprise_PBridge_Block_Checkout_Payment_Abstract extends Mage_P
     public function getSourceUrl()
     {
         $sourceUrl = Mage::helper('enterprise_pbridge')->getGatewayFormUrl(array(
-            'redirect_url' => $this->getRedirectUrl(),
-            'request_gateway_code' => $this->getCode()
+            'redirect_url' => $this->getUrl('*/pbridge/result', array('_current' => true))
         ));
         return $sourceUrl;
     }
