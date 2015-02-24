@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="right">
+            <!-- <block type="callouts/catalog_product_list_new" name="new.from" template="ocm/callouts/catalog/product/list/newfrom.phtml" /> -->
+            <!-- <block type="catalog/product_list" name="topSellers"  after="weRecycle" template="catalog/product/list-top-sellers.phtml" /> -->
+            <block type="callouts/catalog_product_list_top" name="topSellers.callout" template="ocm/callouts/catalog/product/list/top.phtml" />
+        </reference>
+    </default>
+    
+    
+    <newitems_index_index>
+        <reference name="breadcrumbs.container">
+            <block type='core/text' name='foo'>
+                <action method='setText'><text><![CDATA[
+                    <div class="page-title category-title"><h1>New Items</h1></div>
+                ]]></text></action>
+            </block>
+        </reference>
+
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo><label>Home</label><title>Home</title><link>/</link></crumbInfo>
+            </action>
+            <action method="addCrumb">
+                <crumbName>New Items</crumbName>
+                <crumbInfo><label>New Items</label><title>New Items</title></crumbInfo>
+            </action>
+        </reference>
+
+        <reference name='content'>
+        <!--
+            <block type='core/text' name='foo'>
+                <action method='setText'><text><![CDATA[
+                    <div class="page-title category-title"><h1>New Items</h1></div>
+                ]]></text></action>
+            </block>
+        -->
+            
+            <block type="cms/block" name="new.items.callout">
+                <action method="setBlockId"><block_id>new_items_callout</block_id></action>
+            </block>
+           
+            <block type="callouts/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+                <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+            </block>
+        </reference>
+    </newitems_index_index>
+
+
+    <topsellers_index_index>
+        <remove name="topSellers.callout"/>
+        <reference name="breadcrumbs.container">
+            <block type='core/text' name='top.items.title'>
+                <action method='setText'><text><![CDATA[
+                    <div class="page-title category-title"><h1>Top Sellers</h1></div>
+                ]]></text></action>
+            </block>
+        </reference>
+
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo><label>Home</label><title>Home</title><link>/</link></crumbInfo>
+            </action>
+            <action method="addCrumb">
+                <crumbName>Top Sellers</crumbName>
+                <crumbInfo><label>Top Sellers</label><title>Top Sellers</title></crumbInfo>
+            </action>
+        </reference>
+
+        <reference name='content'>
+            <block type="cms/block" name="new.items.callout">
+                <action method="setBlockId"><block_id>top_items_callout</block_id></action>
+            </block>
+            <block type="callouts/catalog_product_list_top" name="topSellers.foo"  after="topSellers" template="ocm/callouts/catalog/product/listtop.phtml" />
+
+<!--           
+            <block type="callouts/catalog_product_listtop" name="product_list" template="catalog/product/list.phtml">
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+                <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+            </block>
+-->
+        </reference>
+    </topsellers_index_index>
+
+
+    
+</layout>

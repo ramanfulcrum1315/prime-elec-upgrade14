@@ -1,0 +1,17 @@
+<?php  $_item = $this->getItem();
+if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): 
+	if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales')): 
+		$curprice = $_item->getCalculationPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition(); 
+	else:  
+		$curprice = $_item->getCalculationPrice(); 
+	endif;
+endif; ?>
+
+
+<tr>
+<td><?php echo $this->getQty() ?></td>
+<td><?php if ($this->hasProductUrl()): ?><a href="<?php echo $this->getProductUrl() ?>"><?php endif; ?><?php echo $this->htmlEscape($this->getProductName()) ?><?php if ($this->hasProductUrl()): ?></a><?php endif; ?></td>
+<td><?php echo $this->helper('checkout')->formatPrice($this->getQty()*$curprice) ?></td>
+</tr>
+
+

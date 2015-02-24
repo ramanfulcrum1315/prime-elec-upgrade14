@@ -1,0 +1,52 @@
+<div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+    </div>
+</div>
+<div class="foot-bottom">
+	<address class="copyright">&copy;<?php echo date('Y')." ".$this->getCopyright() ?></address>
+	<ul class="foot-nav">
+	    <li class="first">
+			<a class="level-top" href="/"><span>Home</span></a>
+		</li>	
+	    <li>
+			<a class="level-top" href="<?php echo$this->getUrl() ?>telecom-equipment"><span>Telecom Equipment</span></a>
+		</li>
+	    <li>
+			<a class="level-top" href="<?php echo$this->getUrl() ?>computers"><span>Computer Accessories</span></a>
+		</li>
+	
+	    <li>
+			<a class="level-top" href="<?php echo$this->getUrl() ?>consumer-electronics"><span>Electronics</span></a>
+		</li>
+	    <li>
+			<a class="level-top" href="<?php echo$this->getUrl() ?>hard-drives-storage"><span>Storage Solutions</span></a>
+		</li>
+	    <li>
+			<a class="level-top" href="<?php echo$this->getUrl() ?>automotive"><span>Automotive</span></a>
+		</li>
+	    <li class="last">
+			<a class="level-top" href="<?php echo$this->getUrl() ?>clearance"><span>Clearence</span></a>
+		</li>
+	</ul>
+</div>
+
+<script>
+jQuery(function() {
+	jQuery(".scrollable").scrollable({circular: true}).autoscroll({ autoplay: true, interval: 7000, autopause: true });
+	jQuery(".scrollable-vert").scrollable({circular: true, vertical: true, mousewheel: true}).autoscroll({ autoplay: true, interval: 7000, autopause: true });
+});
+</script>
+
+ <!-- BEGIN: buySAFE Seal -->
+<span id="BuySafeSealSpan"></span>
+<script src="//seal.buysafe.com/private/rollover/rollover.js"></script>
+<script type="text/javascript">
+if(window.buySAFE && buySAFE.Loaded) {
+   buySAFE.Hash = 'G0iNEjEED4B7cbenMrsIpYgsUJjSTGY%2BA92jR9Lnt1TNcMI0kMoyR%2ByRoR%2FlSz9wRMLmzSBbAii0Fel44rXLFQ%3D%3D';
+   WriteBuySafeSeal("BuySafeSealSpan", "GuaranteedSeal");
+}
+</script>
+<!-- END: buySAFE Seal -->
+
+

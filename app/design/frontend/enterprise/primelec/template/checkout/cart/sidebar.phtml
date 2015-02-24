@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+<?php $_cartQty = $this->getSummaryCount() ?>
+<?php $_items = $this->getRecentItems() ?>
+<?php if(count($_items)): ?>
+<div class="block block-cart">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('My Cart') ?></span></strong>
+    </div>
+    <div class="block-content">
+		<div class="block-content-bottom">
+		<div class="productTbl">
+    	<?php if(count($_items)): ?>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="futura">
+					<th>Qty</th>
+					<th>Item</th>
+					<th>Total</th>
+				</tr>
+     	   <?php foreach($_items as $_item): ?>
+     	       <?php echo $this->getItemHtml($_item) ?>
+      	  <?php endforeach; ?>
+				<tr class="space">
+					<td colspan="3"></td>
+				</tr>
+				<tr class="subtotal">
+					<td colspan="2"><?php echo $this->__('Subtotal:') ?></td>
+					<td><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></td>
+				</tr>
+			</table>
+			<div class="cart-btn"><a href="<?php echo $this->getUrl('checkout/cart') ?>">View or Edit Cart</a></div>
+		<?php else: ?>
+			<p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+		<?php endif ?>
+		</div>
+		</div>
+    <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <div class="actions">
+        <?php echo $this->getChildHtml('extra_actions') ?>
+        <button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+    </div>
+    <?php endif ?>
+    </div>
+<?php /*	<div class="block-bottom">
+    <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <div class="actions">
+        <?php echo $this->getChildHtml('extra_actions') ?>
+        <button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+    </div>
+    <?php endif ?>
+	</div>
+*/ ?>
+
+</div>
+<?php endif;?>
+<?php endif;?>

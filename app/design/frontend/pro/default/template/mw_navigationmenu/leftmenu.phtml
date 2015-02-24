@@ -1,0 +1,236 @@
+<?php 
+	$config=Mage::helper('navigationmenu/configuration')->getConfiguration();
+	if(($config['left_possition']==1)&&($this->checkStoreView())):
+		$menu_items=$this->getMenuItems();
+?>
+<?php
+	$_effect = 'fade';
+	if($config['left_animation']==1):
+		$_effect = 'fade';
+	else:
+		$_effect = 'slide';
+	endif;	
+	//Speed
+	$_speed = 'fast';
+	if($config['top_animation_speed'] == 1):
+		$_speed = 'fast';
+	else:
+		$_speed = 'slow';
+	endif;
+?>
+
+	<div class="mw_nm nm-block-left mega-menu-sidebar">
+	<?php $i=1; foreach($menu_items as $menu_item):?>
+        <?php $row_item = 3;?>
+        <?php if (isset($menu_item['column'])):?>
+            <?php $row_item = ($menu_item['column']);?>
+        <?php endif;?>
+		<?php if(($menu_item['type'])==1 && (count($menu_item['category2']) == 0)):?>
+		<?php else:?>
+			<?php if((isset($menu_item['is_link']))&&($menu_item['is_link']==1) && (!isset($menu_item['exist_position'][1])) && (!isset($menu_item['exist_position'][2])) && (!isset($menu_item['exist_position'][3])) && (!isset($menu_item['exist_position'][4]))):?>
+			<?php elseif(((isset($menu_item['category2']))&&(count($menu_item['category2'])>0))||((isset($menu_item['products']))&&(count($menu_item['products'])>0)) || (isset($menu_item['exist_position'][1])) || (isset($menu_item['exist_position'][2])) || (isset($menu_item['exist_position'][3])) || (isset($menu_item['exist_position'][4]))):?>
+			<script type="text/javascript">
+			(function($){
+				$(document).ready(function($){
+					$('#nm-vertial-mega<?php echo $i;?>').dcVerticalMegaMenu({
+						rowItems: '<?php echo $row_item;?>',
+						speed: '<?php echo $_speed;?>',
+						effect: '<?php echo $_effect;?>',
+						direction: 'right'
+					});
+				});
+			})(jQuery);
+			</script>
+			<?php endif;?>
+		<?php endif;?>
+		<ul id="nm-vertial-mega<?php echo $i;?>" class="mw_nm nm_menu_left">
+			<li class="mw_nm nm_menu_left_item <?php if (isset($menu_item['active'])) {echo($menu_item['active']);}?>">
+				<a class="mw_nm nm_menu_left_item_url" href="<?php echo($menu_item['url']);?>">
+					<span><?php echo($menu_item['name'])?></span>
+				</a>
+				<?php if(($menu_item['type'])==1 && (count($menu_item['category2']) ==0)):?>
+				<?php else:?>
+				<ul class="mw_nm">
+                    <?php if(isset($menu_item['exist_position'][1])):?>
+						<?php $contents=Mage::helper('navigationmenu/contents')->getContent($menu_item['menuitem_id'],1);?>
+						<?php if(isset($contents)):?>
+							<li class="mw_nm nm_menu_left_item_top">
+								<?php foreach($contents as $content):?>								
+									<?php 
+										$block = $this->getLayout()->createBlock('navigationmenu/topmenu_contents') ;
+										$block->assign('content', $content);
+										echo $block->setTemplate('mw_navigationmenu/topmenu/top.phtml')->toHtml();
+									?>
+								<?php endforeach;?>
+							</li>
+						<?php endif;?>
+					<?php endif;?>
+					<?php $non_background = '';?>
+					<?php $non_background_bt = '';?>
+					<?php $non_background_top = '';?>
+                    <?php if((!isset($menu_item['exist_position'][4])) && (!isset($menu_item['exist_position'][1]))):?>
+						<?php $non_background = ' nm_non_b';?>
+					<?php endif;?>
+                    <?php if(!isset($menu_item['exist_position'][4])):
+						$non_background_bt = ' nm_non_b_bottom';
+					endif;?>
+                    <?php if(!isset($menu_item['exist_position'][1])):
+						$non_background_top = ' nm_non_b_top';
+					endif;?>
+
+                    <?php if ((isset($menu_item['exist_position'][2]))||(isset($menu_item['exist_position'][3]))||((isset($menu_item['category2']))&&(count($menu_item['category2'])>0))||((isset($menu_item['products']))&&(count($menu_item['products'])>0))):?>
+					<li class="nm_center">
+					<div class="nm_content_menu<?php echo $non_background; echo $non_background_top; echo $non_background_bt;?>">
+                        <?php if(isset($menu_item['exist_position'][2])):?>
+							<?php $contents=Mage::helper('navigationmenu/contents')->getContent($menu_item['menuitem_id'],2);?>
+							<?php if(isset($contents)):?>
+								<div class="mw_nm nm_menu_left_item_content_left">
+									<?php foreach($contents as $content):?>
+										<?php 
+											$block = $this->getLayout()->createBlock('navigationmenu/topmenu_contents') ;
+											$block->assign('content', $content);
+											echo $block->setTemplate('mw_navigationmenu/topmenu/left.phtml')->toHtml();
+										?>
+									<?php endforeach;?>
+								</div>
+							<?php endif;?>
+						<?php endif;?>
+						
+						<?php if (count($menu_item['category2'])>0):?>
+							<div class="mw-center">
+								<ul>
+									<?php 
+										$block = $this->getLayout()->createBlock('navigationmenu/topmenu_center') ;
+										$block->assign('menu_item', $menu_item);
+										echo $block->setTemplate('mw_navigationmenu/topmenu/center.phtml')->toHtml();
+									?>
+								</ul>
+							</div>
+						<?php elseif(count($menu_item['products'])>0):?>
+							<div class="mw-center">
+								<ul>
+									<?php 
+										$block = $this->getLayout()->createBlock('navigationmenu/topmenu_center') ;
+										$block->assign('menu_item', $menu_item);
+										echo $block->setTemplate('mw_navigationmenu/topmenu/center_product.phtml')->toHtml();
+									?>
+								</ul>
+							</div>
+						<?php endif;?>
+
+                        <?php if(isset($menu_item['exist_position'][3])):?>
+							<?php $contents=Mage::helper('navigationmenu/contents')->getContent($menu_item['menuitem_id'],3);?>
+							<?php if(isset($contents)):?>
+								<div class="mw_nm nm_menu_left_item_content_right">
+									<?php foreach($contents as $content):?>
+										<?php 
+											$block = $this->getLayout()->createBlock('navigationmenu/topmenu_contents') ;
+											$block->assign('content', $content);
+											echo $block->setTemplate('mw_navigationmenu/topmenu/right.phtml')->toHtml();
+										?>
+									<?php endforeach;?>
+								</div>
+							<?php endif;?>
+						<?php endif;?>
+						<div class="mw-clear"><span>&nbsp;</span></div>
+					</div>
+					</li>
+					<?php endif;?>
+
+                        <?php if(isset($menu_item['exist_position'][4])):?>
+							<?php $contents=Mage::helper('navigationmenu/contents')->getContent($menu_item['menuitem_id'],4);?>
+							<?php if(isset($contents)):?>
+								<li class="mw_nm nm_menu_left_item_content_bottom">
+									<?php foreach($contents as $content):?>
+										<?php 
+											$block = $this->getLayout()->createBlock('navigationmenu/topmenu_contents') ;
+											$block->assign('content', $content);
+											echo $block->setTemplate('mw_navigationmenu/topmenu/bottom.phtml')->toHtml();
+										?>
+									<?php endforeach;?>
+								</li>
+							<?php endif;?>
+						<?php endif;?>
+					</ul>
+				<?php endif; ?>
+			</li>
+		</ul>
+	<?php $i++; endforeach;?>    
+	<div class="mw-clear"><span>&nbsp;</span></div>
+	</div>
+	
+	<!----------Mobile-------->
+	<?php 
+	$menu_colections = Mage::getModel ( 'navigationmenu/menuitems' )
+				->getCollection ()
+				->addFieldToFilter ( 'status', array ('eq' => 1 ) )
+				->addOrder ( "main_table.`order`", 'ASC' );
+	$model = Mage::getModel('catalog/category');
+	?> 	
+	<div class="unimobile block mage-menu-driver-left-mobile">
+	  <div class="mobMenu2">
+			<div id="menuInnner2">
+			<?php 
+			foreach ( $menu_colections as $menu_colection ) {
+			if ($menu_colection->isDisplay ()) {
+				$category_id = $menu_colection->getCategoryId ();
+				$cat = $model->load($category_id);
+				$topParent = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($category_id);
+			?>
+				<ul class="accordion">
+					<li class="<?php if($cat->getChildren()) echo "parent"; else echo "no-parent"; ?>">
+						<a href="<?php echo $topParent->getUrl(); ?>"><span><?php echo $menu_colection->getTitle();?></span></a>
+						<ul> 
+						<?php 
+						$collection = $model->getCollection()->addFieldToFilter('parent_id',$category_id)->addFieldToFilter('is_active', array('eq'=>'1'));
+						foreach ($collection as $cat) {
+							$category_id = $cat->getId();
+						?>
+						 <li class="<?php if($cat->getChildren()) echo "parent"; else echo "no-parent"; ?>">
+							  <a href="<?php echo $cat->getUrl(); ?>"><span><?php echo $model->load($category_id)->getName(); ?></span></a>
+							  <ul>
+								<?php 
+									$collection = $model->getCollection()->addFieldToFilter('parent_id',$category_id)->addFieldToFilter('is_active', array('eq'=>'1'));
+									foreach ($collection as $cat) {
+								?>
+								  <li class="<?php if($cat->getChildren()) echo "parent"; else echo "no-parent"; ?>">
+										<a href="<?php echo $cat->getUrl(); ?>"><span><?php echo $model->load($cat->getId())->getName(); ?></span></a>
+								  </li>
+								  <?php } ?>
+							  </ul>
+						</li>
+						<?php } ?>
+						</ul>
+					</li> 
+				</ul>
+				<?php 
+					}
+				}
+				?>
+			</div>
+	 </div>
+	 <div class="clear-both"></div>
+	</div> 
+	<!--------------->	
+	
+<?php endif;?>
+<script type="text/javascript">
+	jQuery(document).ready(function() {	
+		if(jQuery(window).width() <= 992){
+			jQuery('.mega-menu-sidebar').hide();
+			jQuery('.mobMenu2').show();
+		}else{
+			jQuery('.mega-menu-sidebar').show();
+			jQuery('.mobMenu2').hide(); 
+			}
+	}); 
+	jQuery(window).resize(function(){
+		if(jQuery(window).width() <= 992){
+			jQuery('.mega-menu-sidebar').hide();
+			jQuery('.mobMenu2').show();
+		}else{
+			jQuery('.mega-menu-sidebar').show();
+			jQuery('.mobMenu2').hide(); 
+			}
+		});
+</script>

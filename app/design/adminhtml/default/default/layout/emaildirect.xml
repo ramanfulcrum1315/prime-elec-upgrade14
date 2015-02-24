@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_system_config_edit>
+		<reference name="head">
+			<action method="addCss"><stylesheet>emaildirect/emaildirect.css</stylesheet></action>
+		</reference>
+	</adminhtml_system_config_edit>
+
+	<emaildirect_adminhtml_ctemplate_edit>
+		<reference name="head">
+			<action method="addCss"><stylesheet>emaildirect/emaildirect.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>emaildirect/emaildirect.js</name></action>
+		</reference>
+	</emaildirect_adminhtml_ctemplate_edit>
+
+	<emaildirect_adminhtml_ctemplate_new>
+		<reference name="head">
+			<action method="addCss"><stylesheet>emaildirect/emaildirect.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>emaildirect/emaildirect.js</name></action>
+		</reference>
+	</emaildirect_adminhtml_ctemplate_new>
+
+    <!--adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab">
+            	<name>customer_edit_tab_emaildirect_memberactivity</name>
+            	<block>emaildirect/adminhtml_customer_edit_tab_memberactivity</block>
+            </action>
+        </reference>
+    </adminhtml_customer_edit-->
+    
+    <emaildirect_admin_export_run>
+        <remove name="root"/>
+        <block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
+            <block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
+                <action method="addJs"><script>prototype/prototype.js</script></action>
+                <action method="addJs"><script>prototype/validation.js</script></action>
+                <action method="addJs"><script>varien/js.js</script></action>
+                <action method="addJs"><script>mage/translate.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/tools.js</script></action>
+            </block>
+            <block type="emaildirect/adminhtml_system_convert_profile_export" name="system_convert_profile_run" template="emaildirect/system/convert/profile/export.phtml" output="toHtml"/>
+        </block>
+    </emaildirect_admin_export_run>
+
+</layout>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<checkout_onepage_review>
+        <reference name="checkout.onepage.review.info.items.after">
+			<block type="emaildirect/checkout_subscribe" name="emaildirect.subscribe" template="emaildirect/checkout/subscribe.phtml" />
+        </reference>
+	</checkout_onepage_review>
+
+    <emaildirect_email_order_items>
+        <block type="emaildirect/email_order_items" name="items" template="emaildirect/email/order/items.phtml">
+            <action method="addItemRender"><type>default</type><block>emaildirect/email_order_items_order_default</block><template>emaildirect/email/order/items/order/default.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>emaildirect/email_order_items_order_grouped</block><template>emaildirect/email/order/items/order/default.phtml</template></action>
+        </block>
+        <block type="core/text_list" name="additional.product.info" />
+    </emaildirect_email_order_items>
+
+	<!-- Customer -->
+	<customer_account>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>emaildirect/integration.js</name><params/></action>
+		</reference>
+	    <reference name="customer_account_navigation">
+	        <action method="addLink" ifconfig="emaildirect/general/active" translate="label" module="emaildirect">
+	        	<name>emaildirect</name>
+	        	<path>emaildirect/customer_account/index</path>
+	        	<label>Newsletter Subscriptions</label>
+	        </action>
+	    </reference>
+	</customer_account>
+    <customer_account_index>
+        <reference name="my.account.wrapper">
+            <block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
+                <block type="customer/account_dashboard_hello" name="customer_account_dashboard_hello" as="hello" template="customer/account/dashboard/hello.phtml"/>
+                <block type="core/template" name="customer_account_dashboard_top" as="top" />
+                <block type="emaildirect/customer_account_dashboard_info" name="emaildirect.customer_account_dashboard_info" as="info" template="emaildirect/customer/account/dashboard/info.phtml"/>
+                <block type="customer/account_dashboard_newsletter" name="customer_account_dashboard_newsletter" as="newsletter" template="customer/account/dashboard/newsletter.phtml"/>
+                <block type="customer/account_dashboard_address" name="customer_account_dashboard_address" as="address" template="customer/account/dashboard/address.phtml"/>
+			</block>
+		</reference>
+    </customer_account_index>
+
+	<emaildirect_customer_account_index>
+      <label>Customer My Account Emaildirect</label>
+      <update handle="customer_account"/>
+	  <!--reference name="head">
+	  	<action method="addCss"><stylesheet>magemonkey/magemonkey.css</stylesheet></action>
+	  </reference-->
+      <reference name="my.account.wrapper">
+      	  <block type="emaildirect/customer_account_lists" name="emaildirect_additionallists" template="emaildirect/customer/account/lists.phtml" />
+          <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+      </reference>
+	</emaildirect_customer_account_index>
+	<!-- Customer -->
+
+
+
+</layout>

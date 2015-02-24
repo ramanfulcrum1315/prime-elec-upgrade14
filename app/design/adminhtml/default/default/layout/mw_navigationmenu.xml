@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <navigationmenu_adminhtml_menuitems_index>
+        <reference name="content">
+            <block type="navigationmenu/adminhtml_menuitems" name="navigationmenu_menuitems" />
+        </reference>
+    </navigationmenu_adminhtml_menuitems_index>
+    <navigationmenu_adminhtml_contents_index>
+        <reference name="content">
+            <block type="navigationmenu/adminhtml_contents" name="navigationmenu_contents" />
+        </reference>
+    </navigationmenu_adminhtml_contents_index>
+</layout>

@@ -1,0 +1,33 @@
+
+<div class="block block-child-cats">
+	<h2 class="category-title">
+		<?php //echo Mage::registry('current_category')->getName();
+		
+			if ($att_id = $this->getRequest()->getParam('brands')) {
+				if ($brand = Mage::getModel('brands/brands')->loadByAttribute('attr_value_id',$att_id)) {
+					echo $brand->getTitle();
+				} else {
+					echo 'Brands';
+				}
+			} else {
+				echo 'Brands';
+			}
+		?>
+    </h2>
+
+
+    
+    <div class="block-content">
+    	<ul class="child-cats">
+        	<?php foreach ($this->getStoreCategories() as $_category): ?>
+            	<?php if($_category->getIsActive()): ?>
+                	<li>
+                        <a href="<?php echo $this->getCategoryUrl($_category).'?'.$_SERVER["QUERY_STRING"] ?>"<?php if ($this->isCategoryActive($_category)): ?> class="current"<?php endif; ?>><?php echo $this->htmlEscape($_category->getName()) ?></a>
+                    </li>
+                <?php endif; ?>
+			<?php endforeach ?>
+		</ul>
+    </div>
+    
+</div>
+<?php //endif; ?>

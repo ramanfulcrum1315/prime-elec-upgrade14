@@ -1,0 +1,58 @@
+
+<?php
+    $_categoryCollection=$this->getItemCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+                <?php $_collectionSize = $_categoryCollection->count() ?>
+                <?php $_columnCount = 3;//$this->getColumnCount(); ?>
+<?php 
+if($_categoryCollection->count()): ?>
+
+
+<div class="page-title category-title link">
+    <h1> <a href="<?php echo $this->getUrl('newitems') ?>">Popular Categories</a></h1>
+</div>
+
+<div class="content new-callout popular-category">
+	<div class="category-view">
+		<div class="category-products<?php if($_collectionSize > $_columnCount ) : ?> scrollable<?php endif ?>">
+    		<div class="category-products items">
+
+                
+                <?php $i=0; foreach ($_categoryCollection as $_category): ?>
+                
+                <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()); ?>
+                
+                    <?php if ($i++%$_columnCount==0): ?>
+                        <div><ul class="products-grid">
+                    <?php endif ?>
+                    
+                    <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+
+                    
+                        <a href="<?php echo $_category->getUrl() ?>" title="<?php //echo $this->stripTags($this->getImageLabel($_category, 'small_image'), null, true) ?>" class="product-image">
+                        
+                            <img src="<?php echo $this->getThumbnailUrl($_category)//echo $this->helper('catalog/image')->init($_category, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php //echo $this->stripTags($this->getImageLabel($_category, 'small_image'), null, true) ?>" /></a>
+                        <h2 class="product-name"><a href="<?php echo $_category->getUrl() ?>" title="<?php echo $this->stripTags($_category->getName(), null, true) ?>"><?php echo $_category->getName() ?></a></h2>
+
+                    </li>
+                    
+                    <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+                        </ul></div><?php if($i!=$_collectionSize) { ?><?php } ?>
+                    <?php endif ?>
+                    
+                <?php endforeach ?>
+
+            </div>
+        </div>
+        <?php if($_collectionSize > $_columnCount ) : ?>
+    		<div class="scroll-nav">
+            	<a class="prev browse left">last</a>
+                <a class="next browse right">next</a>
+    	    </div>
+        <?php endif ?>
+    </div>
+</div>
+<?php endif;
+?>
+

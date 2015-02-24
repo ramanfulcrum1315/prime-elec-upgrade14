@@ -1,0 +1,44 @@
+<div class="mw_nm nm_right">
+	<?php if(isset($content['title'])):?>
+		<div class="mw_nm nm_content_title">
+			<span><?php echo($content['title']);?></span>
+		</div>
+	<?php endif;?>
+	<?php if(isset($content['text'])):?>
+		<div class="mw_nm nm_content_text">
+			<span><?php echo($content['text']);?></span>
+		</div>
+	<?php endif;?>
+	<?php if(isset($content['image'])):?>
+		<div class="mw_nm nm_content_image">
+			<img src="<?php echo($content['image']);?>"/>
+		</div>
+	<?php endif;?>
+	<?php if(isset($content['product'])):?>
+		<div class="mw_nm nm_content_product">
+			<?php $product=$content['product'];?>
+			<div class="mw_nm nm_content_product_image">
+				<?php $_product = Mage::getModel('catalog/product')->load($product['product_id']);?>
+				<a class="mw_nm nm_content_product_url" href="<?php echo($product['link']);?>">
+					<img src="<?php echo Mage::helper('catalog/image')->init($_product, 'image')->resize(141,167);?>"/>
+				</a>
+			</div>
+			<div class="mw_nm nm_content_product_name">
+				<a class="mw_nm nm_content_product_url" href="<?php echo($product['link']);?>">
+					<span><?php echo($product['name']);?></span>
+				</a>
+			</div>
+			<div class="mw_nm nm_content_product_price">
+				<span><?php echo($product['price']);?></span>
+			</div>
+			<div class="mw_nm nm_content_product_description">
+				<span><?php echo($product['description']);?></span>
+			</div>
+		</div>
+	<?php endif;?>
+	<?php if(isset($content['block_identifier'])):?>
+		<div class="mw_nm nm_content_static_block">
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($content['block_identifier'])->toHtml() ?>
+		</div>
+	<?php endif;?>
+</div>

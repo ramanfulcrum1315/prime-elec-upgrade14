@@ -1,0 +1,6 @@
+<div>
+	<div  style="width:100%; height:910px">
+        <iframe src="<?php echo Mage::helper('salesanalytics/url')->getTPSALoginUrl() ?>?token=<?php echo Mage::getSingleton('terapeak_salesanalytics/usersession')->getSession() ?>&email=<?php echo Mage::getSingleton('terapeak_salesanalytics/usercredentials')->load('1')->getUsername(); ?>" style="width:100%; height:900px">
+		</iframe>
+	</div>
+</div>

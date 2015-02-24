@@ -1,0 +1,9 @@
+<?php 
+
+$types = Mage::app()->getCacheInstance()->getInvalidatedTypes();
+foreach($types as $type) {
+     Mage::app()->getCacheInstance()->cleanType($type->getId());
+	 echo "<!-- cache ".$type->getId()." refreshed -->";
+}
+
+?>

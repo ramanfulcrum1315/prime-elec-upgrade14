@@ -1,0 +1,43 @@
+<?php
+$helper = Mage::helper('brands');
+$featured_brands = $this->getFeaturedBrands();
+$_columnCount = 5;
+$_collectionSize = count($featured_brands);
+?>
+<?php if (count($featured_brands)) : ?>
+    <div class="page-title">
+    	<h2>Featured Brands</h2>
+    </div>
+    <div class="featured-container">
+    <?php $i=0; foreach($featured_brands as $id => $feature): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+            <ul class="featured-brands">
+        <?php endif ?>
+        
+    		<?php if ($feature->getLogo()) : ?>
+    			<li><a href="<?php echo $helper->getBrandUrl($feature->getAttrValueId(),$feature->getTitle()) ?>">
+    			<img src="<?php echo $helper->resizeImage($feature->getLogo(),135); ?>" alt="<?php echo $feature->getTitle(); ?>" /></a></li>
+    		<?php endif ?>
+        
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+            </ul>
+        <?php endif ?>	
+    <?php endforeach ?>
+    </div>
+<?php endif ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

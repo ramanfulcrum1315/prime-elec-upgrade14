@@ -1,0 +1,26 @@
+<?php $config= Mage::helper('navigationmenu/configuration')->getConfiguration();?>
+<?php $products= $menu_item['products']?>
+	<?php if($menu_item['type']==2):?>
+		<li class="li">
+			<?php $max= $config['number_product'];?>
+			<?php $a=1;?>
+			<ul>
+				<?php foreach($products as $product):?>
+					<?php if ($a>intval($max)) break;?>
+					<li>
+						<a class="mw_nm nm_product_url" href="<?php echo($product['link']);?>">
+							<span><?php echo($product['name'])?></span>
+						</a>
+					</li>
+					<?php $a++;?>
+				<?php endforeach;?>
+				<?php if (($a<=count($products))&($config['view_more_product']==1)):?>
+					<li>
+						<a class="mw_nm nm_category_url" href="<?php echo($menu_item['url']);?>">
+							<span><?php echo(Mage::helper('navigationmenu')->__('More..'));?></span>
+						</a>
+					</li>
+				<?php endif;?>
+			</ul>
+		</li>
+	<?php endif;?>

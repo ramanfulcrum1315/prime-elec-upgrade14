@@ -1,0 +1,15 @@
+<!--<button id='emaildirect_export' onClick="window.open('<?php echo $this->getUrl("emaildirect/admin_export/run/"); ?>'); return false;">Export</button>-->
+<button id='emaildirect_export' onClick="test(); return false;">Export</button>
+<script type='text/javascript'>
+function test()
+{
+	var form = $('config_edit_form');
+	var send_to_ed = form['groups[export][fields][send_to_emaildirect][value]'];
+	var include_disabled = form['groups[export][fields][include_disabled][value]'];
+	var url = '<?php echo $this->getUrl("emaildirect/admin_export/run/"); ?>';
+
+	url += 'send_to_emaildirect/' + $(send_to_ed).getValue() + '/include_disabled/' + $(include_disabled).getValue() + '/';
+	
+	window.open(url);
+}
+</script>

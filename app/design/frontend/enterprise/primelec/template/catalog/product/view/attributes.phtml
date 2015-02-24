@@ -1,0 +1,60 @@
+<?php
+/**
+ * Product additional attributes template
+ *
+ * @see Mage_Catalog_Block_Product_View_Attributes
+ */
+?>
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct()
+?>
+<?php if($_additional = $this->getAdditionalData()): ?>
+<dl class="product-features">
+
+		<dt>Item Condition: </dt>
+		<dd><div itemprop="itemCondition"><?php  echo $_product->getAttributeText('item_condition'); ?></div></dd>
+		<dt>Warranty: </dt>
+		<dd><?php  echo $_product->getAttributeText('warranty'); ?></dd>
+        <dt>Description:<br></dt>
+        <dd><div itemprop="description"><?php echo $_product->getData('description'); ?></div></dd>
+        <br><H3 style="font-weight:bold;" >Product Details:</h3><br>
+        <dt>Brand: </dt>
+        <dd><div itemprop="brand"><?php echo $_product->getAttributeText('new_brand'); ?></div></dd>
+        <dt>Country Of Origin: </dt>
+        <dd><?php echo $_product->getAttributeText('country_of_manufacture'); ?></dd>
+        <dt>Date Code: </dt>
+        <dd><?php echo $_product->getData('date_code'); ?></dd>
+        <dt>Manufacturer: </dt>
+        <dd><div itemprop="manufacturer"><?php echo $_product->getData('manufacturer'); ?></div></dd>
+        <meta itemprop="url" content="<?php echo $_product->getUrlModel()->getUrl($_product,array('_ignore_category'=>true)); ?>"/>
+        <meta itemprop="sku" content="<?php echo $_product->getData('sku') ?>"/>
+<?php
+/**        <?php foreach ($_additional as $_data): ?>
+*		
+*			<?php // Remove Description Title from the value
+*			if($_data['code'] == 'description') {
+*				$_data['value'] = str_replace('<p><strong><span style="TEXT-DECORATION: underline">Description:</span></strong></p>', '',$_data['value']);
+*			}
+*			?>
+*		
+*			<?php if($_data['value'] != 'No') : ?>
+*            	<dt><?php echo $this->htmlEscape($this->__($_data['label'])) ?>: </dt>
+*            	<dd><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></dd>
+*			<?php endif; ?>
+*        <?php endforeach; ?>
+*/
+?>
+</dl>
+    <script type="text/javascript">
+	<!--
+	jQuery('.product-features dd').each(function() {
+		if(jQuery(this).height() >17) {
+			jQuery(this).css('clear','left');
+			jQuery(this).prev().css('padding-top','10px');
+		}
+	});
+	-->
+	</script>
+<?php endif;?>
+

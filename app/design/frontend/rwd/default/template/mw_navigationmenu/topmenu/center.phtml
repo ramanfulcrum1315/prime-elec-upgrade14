@@ -1,0 +1,120 @@
+<?php $config= Mage::helper('navigationmenu/configuration')->getConfiguration();?>
+<?php  $row= ($menu_item['column']);?>
+<?php $categories2= $menu_item['category2'];
+$cat_row = count($categories2);
+if($row>$cat_row)$row = $cat_row;
+$row_number = (int)($cat_row/$row)+1;
+?>
+
+
+	<?php for ($li=0;$li<$row;$li++){
+	$category2 = $categories2[$li]; ?>
+		<li class="li<?php if (isset($menu_item['active'])){echo' '.($menu_item['active']);}?>">
+			<a class="mw_nm nm_category_url" href="<?php echo($category2['url']);?>">
+				<span><?php echo($category2['name'])?></span>
+			</a>
+			<?php if(($menu_item['type']==1)&(isset($category2['category3']))):?>
+                <?php if(count($category2['category3'])>0):?>
+                    <?php $categories3= $category2['category3'];?>
+                    <?php $max= $config['number_category'];?>
+                    <?php $a=1;?>
+                    <ul>
+                        <?php foreach($categories3 as $category_level3):?>
+                        <?php if ($a>intval($max)) break;?>
+                        <li>
+                            <a class="mw_nm nm_category_level3_url" href="<?php echo($category_level3['url']);?>">
+                                <span><?php echo($category_level3['name'])?></span>
+                            </a>
+                        </li>
+                        <?php $a++;?>
+                        <?php endforeach;?>
+                        <?php if (($a<=count($categories3))&($config['view_more_category']==1)):?>
+                        <li>
+                            <a class="mw_nm nm_category_url" href="<?php echo($category2['url']);?>">
+                                <span><?php echo(Mage::helper('navigationmenu')->__('More..'));?></span>
+                            </a>
+                        </li>
+                        <?php endif;?>
+                    </ul>
+                <?php endif;?>
+			<?php elseif(($menu_item['type']==2)&(isset($category2['products']))):?>
+				<?php if(count($category2['products'])>0):?>
+                    <?php $products= $category2['products']?>
+                    <?php $max= $config['number_product'];?>
+                    <?php $a=1;?>
+                    <ul>
+                        <?php foreach($products as $product):?>
+                        <?php if ($a>intval($max)) break;?>
+                        <li>
+                            <a class="mw_nm nm_product_url" href="<?php echo($product['link']);?>">
+                                <span><?php echo($product['name'])?></span>
+                            </a>
+                        </li>
+                        <?php $a++;?>
+                        <?php endforeach;?>
+                        <?php if (($a<=count($products))&($config['view_more_product']==1)):?>
+                        <li>
+                            <a class="mw_nm nm_category_url" href="<?php echo($category2['url']);?>">
+                                <span><?php echo(Mage::helper('navigationmenu')->__('More..'));?></span>
+                            </a>
+                        </li>
+                        <?php endif;?>
+                    </ul>
+                <?php endif;?>
+			<?php endif;?>
+			<?php for($irow=1;$irow<=$row_number;$irow++){
+			if(isset($categories2[$irow*$row+$li])){
+			$category23 = $categories2[$irow*$row+$li];
+			if($category23['name'] !=''){
+			?>
+			<a class="mw_nm nm_category_url" href="<?php echo($category23['url']);?>">
+				<span><?php echo($category23['name'])?></span>
+			</a>
+			<?php } if(isset($menu_item['type'])&($menu_item['type']==1)&(isset($category23['category3']))):?>
+				<?php $categories3= $category23['category3'];?>
+				<?php $max= $config['number_category'];?>
+				<?php $a=1;?>
+				<ul>
+					<?php foreach($categories3 as $category_level3):?>
+						<?php if ($a>intval($max)) break;?>
+						<li>
+							<a class="mw_nm nm_category_level3_url" href="<?php echo($category_level3['url']);?>">
+								<span><?php echo($category_level3['name'])?></span>
+							</a>
+						</li>
+						<?php $a++;?>
+					<?php endforeach;?>
+					<?php if (($a<=count($categories3))&($config['view_more_category']==1)):?>
+						<li>
+							<a class="mw_nm nm_category_url" href="<?php echo($category2['url']);?>">
+								<span><?php echo(Mage::helper('navigationmenu')->__('More..'));?></span>
+							</a>
+						</li>
+					<?php endif;?>
+				</ul>
+			<?php elseif(($menu_item['type']==2)&(count($category23['products'])>0)):?>
+				<?php $products= $category23['products']?>
+				<?php $max= $config['number_product'];?>
+				<?php $a=1;?>
+				<ul>
+					<?php foreach($products as $product):?>
+						<?php if ($a>intval($max)) break;?>
+						<li>
+							<a class="mw_nm nm_product_url" href="<?php echo($product['link']);?>">
+								<span><?php echo str_replace(" - Magento Theme","", str_replace(" - Magento Extension","", ($product['name'])))?></span>
+							</a>
+						</li>
+						<?php $a++;?>
+					<?php endforeach;?>
+					<?php if (($a<=count($products))&($config['view_more_product']==1)):?>
+						<li>
+							<a class="mw_nm nm_category_url" href="<?php echo($category2['url']);?>">
+								<span><?php echo(Mage::helper('navigationmenu')->__('More..'));?></span>
+							</a>
+						</li>
+					<?php endif;?>
+				</ul>
+			<?php endif;?>
+			<?php } }?>
+		</li>
+	<?php } ?>

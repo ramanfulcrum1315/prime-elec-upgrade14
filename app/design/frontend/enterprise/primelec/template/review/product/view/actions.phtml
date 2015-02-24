@@ -1,0 +1,3 @@
+
+<?php $_reviewcount = count($this->getReviewsCollection()->getItems());?>
+<a href="#reviews" rel="tab">Write a Review</a> | <a href="#reviews" rel="tab">Read <?php echo ($_reviewcount>1) ? $_reviewcount.' Reviews':$_reviewcount.' Review'; ?></a>

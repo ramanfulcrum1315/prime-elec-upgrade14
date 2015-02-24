@@ -1,0 +1,42 @@
+<?php if ($this->hasItems()):?>
+<div class="block block-list block-related">
+
+    <div class="block-title">
+        <strong><a href="<?php echo $this->getUrl('newitems') ?>"><span><?php echo $this->__('New Items') ?></span></a></strong>
+    </div>
+
+    <a class="prev browse left"></a>
+
+    <div class="block-content scrollable-vert">
+    <div class="items">
+
+    <?php $i=0; foreach($this->getItemCollection() as $_item): ?>
+        <?php if ($i++ % $this->getColumnCount() == 0): ?>
+        <div>
+        <ol class="list-content" id="related-items">
+        <?php endif ?>
+        <li class="item<?php if (($i - 1) % $this->getColumnCount() == 0):?> first<?php elseif ($i % $this->getColumnCount() == 0): ?> last<?php endif; ?>">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="img"> <a href="<?php echo $this->getProductUrl($_item) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></td>
+    <td><h3 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
+                    <?php echo $this->getPriceHtml($_item, true, '-related') ?></td>
+  </tr>
+</table>
+
+        
+
+        </li>
+        <?php if ($i % $this->getColumnCount() == 0 || $i == $this->getItemsCount()): ?>
+        </ol>
+        </div>
+        <?php endif ?>
+    <?php endforeach ?>
+    </div><!--end items-->
+    </div><!--end block content-->
+
+    <a class="next browse right"></a>
+</div>
+<?php endif;?>

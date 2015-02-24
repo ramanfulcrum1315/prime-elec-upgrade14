@@ -1,0 +1,64 @@
+Icons			
+<?php
+$helper = Mage::helper('brands');
+$brands_array = $this->getAlphabeticalChunkedBrands();
+$_columnCount = 8;
+$_collectionSize = count($brands_array);
+
+$is_third_party = $helper->isThirdPartSearchEngine();
+$brand_attribute = $helper->getBrandAttrCode();
+$current_brand = '';
+?>
+
+<?php echo $this->getBrandsBlock(); ?>
+<?php echo $this->getChildHtml('featured'); ?>
+
+<div class="page-title">
+	<h2>All Brands</h2>
+</div>
+
+<ul class="brand_key">
+<?php $i=0; foreach ($brands_array as $key => $brands): ?>
+<li><a href="#<?php echo ($key == 'NUM') ? '1-10' : $key ?>"><?php echo ($key == 'NUM') ? '1-10' : $key ?></a></li>
+<?php endforeach ?>
+</ul>
+
+<?php $i=0; foreach ($brands_array as $key => $brands): ?>
+    <?php $key = ($key == 'NUM') ? '1-10' : $key ?>
+    		<?php foreach ($brands as $id => $brand) : ?>
+                <?php if ($i++%$_columnCount==0): ?><ul class="brands-icon-grid"><?php endif ?>
+    	    	  <li class = "<?php echo $i ?>" >
+    	    	      <?php if ($current_brand != $key) : ?>
+    	    	      <a id="<?php echo $key ?>"></a>
+    	    	      <?php endif ?>
+    	    	      <a href="<?php echo $helper->getBrandUrl($id,$brand['name']) ?>">
+    	    	      <?php if ($brand['icon']) : ?>
+    	    	          <img src="<?php echo $helper->resizeImage($brand['icon'],82); ?>" alt="<?php echo $brand['name']; ?>" />
+    	    	      <?php else : ?>
+    	    	          <div class="brand-missing-icon" <?php if($this->getDefaultImage()): ?>style="background:url(<?php echo $this->getDefaultImage() ?>)"<?php endif ?>>
+    	    	              <span><?php echo $brand['name']; ?></span>
+    	    	          </div>
+    	    	      <?php endif ?>
+    	    	      </a>
+    	    	  </li>
+                <?php if ($i%$_columnCount==0 && $i!=$_collectionSize): ?></ul><?php endif ?>	
+    <?php $current_brand = $key ?>
+    	    <?php endforeach ?>
+<?php endforeach ?>
+    	    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

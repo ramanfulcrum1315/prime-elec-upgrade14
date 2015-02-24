@@ -1,0 +1,25 @@
+<?php /* @var $this Mage_Catalog_Block_Product_View_Abstract */?>
+<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<?php $_product = $this->getProduct() ?>
+
+<?php $cfp = ($_product->getCallForPrice()) ? $_product->getCallForPrice() : Mage::getModel('catalog/product')->loadByAttribute('sku',$_product->getSku())->getCallForPrice(); ?>
+<?php if ($_product->isAvailable() && !$cfp): ?>
+	<p>Available Qty: 
+		<?php
+			$__manStock = $_product->getStockItem()->getManageStock();
+			$__invAmt = (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty();
+			if ($__manStock > 0)echo $__invAmt;
+		?>
+	</p>
+<?php echo $this->getChildHtml('product_type_data_extra') ?>
+<?php echo $this->getPriceHtml($_product) ?>
+<?php else: ?>
+                        <div class="price-box"><span class="price"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('call_for_price')->toHTML();?></span></div>
+<?php endif; ?>
+<?php if ($_product->isAvailable()): ?>
+	<link itemprop="availability" href="http://schema.org/InStock">
+<?php else: ?>
+	<link itemprop="availability" href="http://schema.org/OutOfStock">
+<?php endif; ?>
+<meta itemprop="priceCurrency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>" />
+</div>

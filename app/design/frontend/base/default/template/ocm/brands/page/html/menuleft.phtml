@@ -1,0 +1,20 @@
+<?php
+$helper = Mage::helper('brands');
+$menu_items = $this->getBrandsMenuItems();
+?>
+<div class="block block-layered-nav">
+    <div class="block-content">
+        <dl id="narrow-by-list">
+            <dt>Popular Brands</dt>
+            <dd>
+                <ol>
+                    <?php foreach ($menu_items as $item): ?>
+                        <li><a href="<?php echo $helper->getBrandUrl($item->getAttrValueId(),$item->getTitle()) ?>"><?php echo $item->getTitle() ?></a></li>
+                    <?php endforeach ?>
+                    <li><strong><a href="<?php echo $this->getUrl('brands') ?>">Browse All Brands</a></strong></li>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+    
+</div>

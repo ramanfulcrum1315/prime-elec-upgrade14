@@ -1,0 +1,52 @@
+			
+<?php
+$helper = Mage::helper('brands');
+$brands_array = $this->getAlphabeticalChunkedBrands();
+$_columnCount = 5;
+$_collectionSize = count($brands_array);
+
+$is_third_party = $helper->isThirdPartSearchEngine();
+$brand_attribute = $helper->getBrandAttrCode();
+
+?>
+
+<?php echo $this->getBrandsBlock(); ?>
+<?php echo $this->getChildHtml('featured'); ?>
+
+<div class="page-title">
+	<h2>All Brands</h2>
+</div>
+<?php $i=0; foreach ($brands_array as $key => $brands): ?>
+    <?php if ($i++%$_columnCount==0): ?>
+    <ul class="brands-grid">
+    <?php endif ?>
+    
+    	<li class="brand-group">
+    		<h2><?php echo ($key == 'NUM') ? '1-10' : $key ?> </h2>
+        	<ul>
+        		<?php foreach ($brands as $id => $brand) : ?>
+        	    	<li><a href="<?php echo $helper->getBrandUrl($id,$brand['name']) ?>"><?php echo $brand['name'] ?></a></li>
+        	    <?php endforeach ?>
+        	</ul>
+    	</li>
+    
+    <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+    </ul>
+    <?php endif ?>	
+<?php endforeach ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

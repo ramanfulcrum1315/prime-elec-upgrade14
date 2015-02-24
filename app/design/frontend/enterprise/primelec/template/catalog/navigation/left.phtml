@@ -1,0 +1,151 @@
+<?php
+/**
+ * Category left navigation
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+ /*
+$currCat = (!Mage::registry('current_category')) ? Mage::getModel('catalog/category')->load(2) : Mage::registry('current_category');
+
+function getMenu($root_cat=2){	
+	$menu_arrs=array();
+	//get current category
+	//$currCat = (!Mage::registry('current_category')) ? Mage::getModel('catalog/category')->load(2) : Mage::registry('current_category');
+	//echo $currCat->getEntityId();
+	//get sub categories of current category
+	//just use 2 for root category
+	$this_id=$root_cat;
+	$collection = Mage::getModel('catalog/category')->getCategories($this_id);
+	 
+	/**
+	 * only showing active sub categories ($cat->getIsActive())
+	 *
+	foreach($collection as $cat) {
+				
+		$category = Mage::getModel('catalog/category')->load($cat->getEntityId());
+		$layer = Mage::getSingleton('catalog/layer');
+		$layer->setCurrentCategory($category);
+		$prodCount = $layer->getProductCollection()->getSize();
+		
+		if($cat->getIsActive() && $prodCount > 0) {
+			$menu_arr=array();
+			$url=$category->getUrl();
+			$cat_name=$category->getName();
+			$id=$category->getId();
+			$menu_arr['id']=$id;
+			$menu_arr['name']=$cat_name;
+			$menu_arr['url']=$url;
+
+			if(!$category->hasChildren()){
+				$menu_arr['has_children']=0;
+				$menu_arrs[]=$menu_arr;
+			}
+			else{
+				$menu_arr['has_children']=1;
+				$menu_arr['children']=getMenu($id);
+				$menu_arrs[]=$menu_arr;
+			}
+		}
+	}
+	// Reset the current cat to original
+	//Mage::getSingleton('catalog/layer')->setCurrentCategory($currCat);
+	return $menu_arrs;
+}
+$menu=getMenu(2);
+
+// Reset current category after using getMenu()
+Mage::getSingleton('catalog/layer')->setCurrentCategory($currCat);
+
+function sortByName($a, $b) {
+    //return $a['name'] - $b['name'];
+	return strcmp($a["name"], $b["name"]);
+}
+
+
+	
+function displayMenu($menu, $level=0){
+usort($menu, 'sortByName');
+	$i=1;
+	foreach($menu as $key => $m){
+		$first = ($key == 0) ? ' first':'';
+		$last = ($key == count($menu)-1) ? ' last':'';
+		$level_top = ($level==0) ? ' level-top':'';
+		$parent = ($m['has_children']) ? ' parent':'';
+		$childlevel = $level;
+		echo '<li class="level'.$level.$first.$last.$level_top.$parent.'"><a href="'.$m['url'].'" class="'.$level_top.'"><span>'.htmlentities($m['name']).'</span></a>';
+		if($m['has_children'] && count($m['children'])>0) {
+			$childlevel++;
+			echo ($childlevel==1) ? '<div class="mega">':'';
+			echo '<ul class="navlevel-'.$childlevel.'">';
+			displayMenu($m['children'], $childlevel);
+			echo '</ul>'."\n";
+			echo ($childlevel==1) ? '</div>'."\n":'';
+		}
+		echo '</li>'."\n";
+		//echo ($level==1 && $i!=count($menu) && $i++%5==0 ) ? '</ul><ul class="navlevel-1 more">':'';
+	}
+}
+*/
+?>
+
+
+<?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
+<?php if($_menu): ?>
+
+<div class="block block-layered-nav">
+    <div class="block-content">
+        <dl id="narrow-by-list2">
+            <dt><?php echo $this->__('Shop by Category') ?></dt>
+            <dd>
+                <ol id="left-nav">
+                <?php echo $_menu; ?>
+                </ol>
+            </dd>
+        </dl>
+        <script type="text/javascript">
+		<!--
+		//decorateDataList('narrow-by-list2')
+		//decorateDataList('left-nav')
+		jQuery("#left-nav li.parent").hover(
+			function () {
+			    if(!jQuery(this).hasClass('active')) {
+    				jQuery(this).addClass('over');
+    				jQuery(this).find("ul:first").css('display', 'block');
+			    }
+
+			},
+			function () {
+			    if(!jQuery(this).hasClass('active')) {
+    				jQuery(this).removeClass('over');
+    				jQuery(this).find("ul:first").css('display', 'none');
+			    }
+			}
+		);
+		jQuery("#left-nav li.parent ul").css('display', 'none');
+		jQuery("#left-nav li.parent.active > ul").css({
+		    'display':'block',
+		    'position':'static',
+		    'box-shadow':'none',
+		  });
+		jQuery("#left-nav li.parent.active > ul > li").css({
+		    'background': 'url("<?php echo $this->getSkinUrl()?>images/list_left-nav.jpg") no-repeat scroll left 3px transparent',
+		    'padding-left':'8px'
+		  });
+//		function zStripe(elem) {
+//			var class;
+//			var i = 0;
+//           jQuery(elem).each(function() {
+//				class = (i++%2==0) ? 'odd':'even';
+//				jQuery(this).addClass(class);
+//				if (jQuery(this).find('ul')) {
+//					zStripe(jQuery(this).find('ul:first > li'))
+//				}
+//			});
+//		}
+		//zStripe('#left-nav > li');
+
+		-->
+		</script>
+    </div>
+</div>
+<?php endif; ?>

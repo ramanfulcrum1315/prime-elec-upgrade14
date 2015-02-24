@@ -1,0 +1,177 @@
+<?php
+
+/**
+ * @author Branko Ajzele | http://activecodeline.com | branko.ajzele@surgeworks.com
+ * @license GPL
+ */
+
+
+
+$totalPerPage = ($this->show_total) ? $this->show_total : 5;
+$counter = 1;
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+
+$storeId = Mage::app()->getStore()->getId();
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+                              ->addAttributeToSelect('*')
+                              ->addOrderedQty()
+                              ->addAttributeToFilter('visibility', $visibility)
+                              ->setPageSize($totalPerPage) ;
+							  
+//$_productCollection->addAttributeToFilter('category_ids', array('like'=>'%'.Mage::getSingleton('catalog/layer')->getCurrentCategory()->getId().'%'));
+
+//if($this->getRequest()->getParam('age')) $_productCollection->addAttributeToFilter('age', array('like'=>'%'.$this->getRequest()->getParam('age').'%'));
+//if($this->getRequest()->getParam('brand')) $_productCollection->addAttributeToFilter('brand', array('like'=>'%'.$this->getRequest()->getParam('brand').'%'));
+//if($this->getRequest()->getParam('character_or_collection')) $_productCollection->addAttributeToFilter('character_or_collection', array('like'=>'%'.$this->getRequest()->getParam('character_or_collection').'%'));
+
+
+$_productCollection->setOrder('ordered_qty', 'desc');
+
+// $ageprint_r(Mage::app()->getRequest()->getParam('product_id'));
+//$brand = Mage::app()->getRequest()->getParam('brand');
+//$occasion = Mage::app()->getRequest()->getParam('occasion');
+//$character_or_collection = Mage::app()->getRequest()->getParam('character_or_collection');
+
+//Mage_Reports_Model_Mysql4_Product_Collection
+?>
+
+<?php /*     
+
+/**
+ * Each product in foreach loop is array of following fields
+ *
+
+	Array
+        (
+            [ordered_qty] =&gt; 5.0000
+            [entity_id] =&gt; 3326
+            [entity_type_id] =&gt; 4
+            [attribute_set_id] =&gt; 9
+            [type_id] =&gt; simple
+            [sku] =&gt; AL-1971E
+            [has_options] =&gt; 0
+            [required_options] =&gt; 0
+            [created_at] =&gt; 2010-11-12 21:37:46
+            [updated_at] =&gt; 2011-01-13 23:31:00
+            [visibility] =&gt; 4
+            [name] =&gt; My First Rocker - Elephant Soft Rocker
+            [url_key] =&gt; my-first-rocker-elephant-soft-rocker
+            [gift_message_available] =&gt; 
+            [meta_title] =&gt; 
+            [meta_description] =&gt; 
+            [custom_design] =&gt; 
+            [page_layout] =&gt; 
+            [options_container] =&gt; 
+            [image_label] =&gt; 
+            [small_image_label] =&gt; 
+            [thumbnail_label] =&gt; 
+--            [age] =&gt; 289,290
+--            [occasion] =&gt; 
+            [season] =&gt; 
+            [bomessage] =&gt; Will ship in 7 - 10 business days. Subject to availability.
+            [upc] =&gt; 7.31E+11
+            [isbn] =&gt; 
+            [amazon_asin] =&gt; B001KN5A10
+            [ffc] =&gt; 
+            [froogle_alt_name_one] =&gt; First Rocker Elephant
+            [froogle_alt_name_two] =&gt; Soft Rocker Elephant
+            [image] =&gt; /A/L/AL-1971E_2.jpg
+            [small_image] =&gt; /A/L/AL-1971E_2.jpg
+            [thumbnail] =&gt; /A/L/AL-1971E_2.jpg
+            [url_path] =&gt; my-first-rocker-elephant-soft-rocker.html
+            [gallery] =&gt; 
+--            [character_or_collection] =&gt; 262
+            [age_range] =&gt; 6 - 24 Months
+            [status] =&gt; 1
+            [tax_class_id] =&gt; 2
+            [enable_googlecheckout] =&gt; 
+            [is_recurring] =&gt; 
+--            [brand] =&gt; 249
+            [color] =&gt; 
+            [gift_wrapped] =&gt; 0
+            [dropship] =&gt; 1
+--            [price] =&gt; 103.9900
+            [special_price] =&gt; 103.9900
+            [cost] =&gt; 0.0000
+            [weight] =&gt; 1.0000
+            [news_from_date] =&gt; 
+            [news_to_date] =&gt; 
+            [special_from_date] =&gt; 2010-11-12 00:00:00
+            [special_to_date] =&gt; 
+            [custom_design_from] =&gt; 
+            [custom_design_to] =&gt; 
+            [description] =&gt; This cozy elephant rocker is perfect for your baby.  Made of solid wood construction with a soft cuddly plush seat, with a buckle for safety.  Suitable for babies up to 30 lbs..
+            [short_description] =&gt; 
+            [meta_keyword] =&gt; 
+            [custom_layout_update] =&gt; 
+            [youtube] =&gt; 
+            [is_salable] =&gt; 1
+            [stock_item] =&gt; 
+			
+			Varien_Object Object
+                (
+                    [_data:protected] =&gt; 
+					Array
+                        (
+                            [is_in_stock] =&gt; 1
+                        )
+
+                    [_hasDataChanges:protected] =&gt; 
+                    [_origData:protected] =&gt; 
+                    [_idFieldName:protected] =&gt; 
+                    [_isDeleted:protected] =&gt; 
+                )
+
+        )
+
+    [_hasDataChanges:protected] =&gt; 1
+    [_origData:protected] =&gt; 
+    [_idFieldName:protected] =&gt; entity_id
+    [_isDeleted:protected] =&gt; 
+)
+
+
+ */
+?>
+
+
+<?php
+//if ($this->getRequest()->getParam('cat')) $currentCat = $this->getRequest()->getParam('cat');
+//else $currentCat = Mage::getSingleton('catalog/layer')->getCurrentCategory()->getId();
+
+//$showBlock = 0;
+//foreach($_productCollection as $product){
+//        foreach ($product->getCategoryIds() as $catId){
+//			if ($catId == $currentCat) $showBlock++;
+			//echo "$catId, ";
+//        }
+//}
+?>
+<?php // if($showBlock): ?>
+	<div class="widget-static-block">
+        <dl id="narrow-by-list2">
+            <dt class="last odd"><h2>Top Sellers</h2></dt>
+            <dd class="last odd">
+        		<ol class="top-sellers">
+<?php
+foreach($_productCollection as $_product): 
+		if($counter <= $totalPerPage): ?>
+            		<li>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName() ?></a>
+						<span class="top-price">$<?php echo number_format($_product->getFinalPrice(), 2, '.', '') ?></span>
+            		</li>
+<?php $counter++;endif;  ?>
+<?php endforeach; ?>
+        		</ol>
+			</dd>
+		</dl>
+	</div>
+
+<?php //endif; ?>
+
+
+
+

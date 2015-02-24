@@ -1,0 +1,77 @@
+<?php
+    $_productCollection=Mage::getModel('catalog/category')->load($this->getCategoryId())->getProductCollection()
+        ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
+        ->addMinimalPrice()
+        ->addFinalPrice()
+        ->addTaxPercents()
+        ->addUrlRewrite($this->getCategoryId())
+    ;
+    $_helper = $this->helper('catalog/output');
+?>
+
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if($_productCollection->count()): ?>
+
+
+<div class="page-title category-title">
+    <h1>Featured Items</h1>
+</div>
+
+<div class="content new-callout">
+	<div class="category-view">
+		<div class="category-products scrollable">
+    		<div class="category-products items">
+
+                <?php $_collectionSize = $_productCollection->count() ?>
+                <?php $_columnCount = $this->getColumnCount(); ?>
+                
+                <?php $i=0; foreach ($_productCollection as $_product): ?>
+                
+                    <?php if ($i++%$_columnCount==0): ?>
+                        <div><ul class="products-grid">
+                    <?php endif ?>
+                    
+                    <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                    
+                        <?php if ($this->helper('callouts')->getIsNew($_product)) : ?>
+                            <div class="new-product-callout">New</div>
+                        <?php endif ?> 
+                        <?php if ($_product->getSpecialPrice()) : ?>
+                            <div class="sale-product-callout">On Sale</div>
+                        <?php endif ?> 
+            
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                        <?php if($_product->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                        	<?php $cfp = ($_product->getCallForPrice()) ? $_product->getCallForPrice() : Mage::getModel('catalog/product')->loadByAttribute('sku',$_product->getSku())->getCallForPrice(); ?>
+                            <?php if($_product->isSaleable() && !$cfp): ?>
+                        	<?php echo $this->getPriceHtml($_product, true) ?>
+                        	<div class="actions">
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            </div>
+                            <?php else: ?>
+                                <div class="price-box"><span class="price"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('call_for_price')->toHTML();?></span></div>
+                            <?php endif; ?>
+                    </li>
+                    
+                    <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+                        </ul></div><?php if($i!=$_collectionSize) { ?><?php } ?>
+                    <?php endif ?>
+                    
+                <?php endforeach ?>
+
+            </div>
+        </div>
+		<div class="scroll-nav">
+        	<a class="prev browse left">last</a>
+            <a class="next browse right">next</a>
+	    </div>
+    </div>
+</div>
+<?php endif; ?>
+

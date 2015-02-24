@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    
+    <!-- Layout handle for products -->
+    <!-- 
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <block type="zizio_groupsale_block_adminhtml_catalog_product_edit_tab_zizio" name="tab_zizio" before="-" />
+            <action method="addTab">
+                <name>zizio</name>
+                <block>tab_zizio</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+     
+    <groupsale_adminhtml_groupsale_index>
+        <reference name="content">
+            <block type="groupsale/adminhtml_groupsale" name="groupsale" />
+        </reference>
+    </groupsale_adminhtml_groupsale_index>
+    -->
+    
+    <!-- Layout handles for Sales_Order_View -->
+    
+    <adminhtml_sales_order_view>
+        <reference name="content">
+        	<block type="groupsale/adminhtml_sales_order_alert" name="zizio_alert_script" before="-" />
+        	<block type="groupsale/adminhtml_sales_order_status" name="zizio_status_ajax_script" before="-" />
+        </reference>
+    </adminhtml_sales_order_view>
+
+    <adminhtml_sales_order_addcomment>
+    	<reference name="order_history">
+        	<block type="groupsale/adminhtml_sales_order_status" name="zizio_status_ajax_script" output="toHtml" before="-" />
+        </reference>
+    </adminhtml_sales_order_addcomment>
+    
+    <adminhtml_sales_order_invoice_new>
+    	<reference name="content">
+        	<block type="groupsale/adminhtml_sales_order_status" name="zizio_status_form_script" after="-" />
+        </reference>	
+    </adminhtml_sales_order_invoice_new>
+
+    <adminhtml_sales_order_shipment_new>
+    	<reference name="content">
+        	<block type="groupsale/adminhtml_sales_order_status" name="zizio_status_form_script" after="-" />
+        </reference>	
+    </adminhtml_sales_order_shipment_new>
+    
+</layout>

@@ -1,0 +1,55 @@
+
+<?php $_productCollection = $this->getItemCollection(); ?>
+<?php // if($showBlock): ?>
+	<div class="widget-static-block">
+      <!--   <dl id="narrow-by-list2">
+            <dt class="last odd"><h2>Top Sellers</h2></dt>
+            <dd class="last odd">
+        		<ol class="top-sellers">
+<?php
+foreach($_productCollection as $_product): ?>
+            		<li>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName() ?></a>
+						<span class="top-price">$<?php echo number_format($_product->getFinalPrice(), 2, '.', '') ?></span>
+            		</li>
+<?php endforeach; ?>
+        		</ol>
+			</dd>
+		</dl>
+	</div>  -->
+	</br>
+<div class="edmail">
+  <form action="http://go.emaildir2.com/l/j/jci/j/_/_/mci/submit.htm" method="post">
+        <table cellpadding="0" cellspacing="0" border="0"  width="100%" align="center">
+<tr>
+<td width="100%"  colspan="2" valign="top">
+<div align="center"><h2>Subscribe to our newsletter</h2></div>
+</td>
+</tr>
+<tr>
+<td width="100%"  colspan="2" valign="top" align="center" >
+<label>Email <span style="color: #F00;">*&nbsp;</span></label><input type="text" id="email" name="email"> 
+</td>
+</tr>
+<tr>
+<td width="100%"  colspan="2" valign="top" style="padding-top: 10px;">
+ <div id="publication-wrapper" class="one-publication" style="display: none;">
+
+                <div class="publication" id="pub-wrapper-2">
+                    <div><input checked="checked" id="chk2" name="chk2" type="checkbox" value="true" /><input name="chk2" type="hidden" value="false" /><label for="chk2">Prime - Newsletter &amp; Deals</label></div>
+                    <div class="publication-description">Subscribe to publication: Prime - Newsletter &amp; Deals</div>
+                </div>
+
+        </div>
+       <input type="submit" value="Submit">     
+</td>
+</tr>
+</table>
+   </form>
+   </div>
+   	</br>
+<?php //endif; ?>
+
+
+
+
