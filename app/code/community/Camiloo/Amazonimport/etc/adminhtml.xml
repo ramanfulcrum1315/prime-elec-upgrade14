@@ -1,0 +1,356 @@
+<?xml version="1.0"?> 
+<config>
+		<menu>
+				<amazon>
+						<title>Amazon</title>
+						<sort_order>35</sort_order>
+						<children>
+							<amazoncom>						
+								<title>Amazon.com Listings</title>
+								<sort_order>35</sort_order>
+								<children>		
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/com</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/com</action>
+									</mapping>								
+									</children>
+								</advanced>																	
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/com</action>
+								</selection>	
+								<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/com</action>
+									</manualsetup>									
+								<massupdate module="amazonimport">
+										<title>Mass Update Tool</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/massupdate/com</action>
+								</massupdate>			
+								</children>
+							</amazoncom>
+							<amazonuk>						
+								<title>Amazon.co.uk Listings</title>
+								<sort_order>45</sort_order>
+								<children>			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/uk</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/uk</action>
+									</mapping>								
+									</children>
+								</advanced>																	
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/uk</action>
+								</selection>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/uk</action>
+									</manualsetup>	
+									<massupdate module="amazonimport">
+											<title>Mass Update Tool</title>
+											<sort_order>170</sort_order>
+											<action>amazonimport/massupdate/uk</action>
+									</massupdate>	
+								</children>
+							</amazonuk>
+							<amazonfr>						
+								<title>Amazon.fr Listings</title>
+								<sort_order>55</sort_order>
+								<children>																			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/fr</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/fr</action>
+									</mapping>						
+									</children>
+								</advanced>
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/fr</action>
+								</selection>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/fr</action>
+									</manualsetup>
+									<massupdate module="amazonimport">
+											<title>Mass Update Tool</title>
+											<sort_order>170</sort_order>
+											<action>amazonimport/massupdate/fr</action>
+									</massupdate>	
+
+								</children>
+							</amazonfr>
+							<amazonde>						
+								<title>Amazon.de Listings</title>
+								<sort_order>65</sort_order>
+								<children>																			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/de</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/de</action>
+									</mapping>							
+									</children>
+								</advanced>
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/de</action>
+								</selection>	
+								<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/de</action>
+									</manualsetup>		
+									<massupdate module="amazonimport">
+											<title>Mass Update Tool</title>
+											<sort_order>170</sort_order>
+											<action>amazonimport/massupdate/de</action>
+									</massupdate>	
+
+								</children>
+							</amazonde>					
+									<logging module="amazonimport">
+										<title>Communication Log</title>
+										<sort_order>120</sort_order>
+										<action>amazonimport/logging/index</action>
+									</logging>	
+									<licensing module="amazonimport">
+										<title>View / Update License</title>
+										<sort_order>150</sort_order>
+										<action>amazonimport/licensing</action>
+									</licensing>												
+							</children>
+					</amazon>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+ 					    
+					  <amazon>
+						<title>Amazon</title>
+						<sort_order>35</sort_order>
+						<children>
+							<status module="amazonimport">
+								<title>Overview</title>
+								<sort_order>1</sort_order>
+								<action>amazonimport/overview/index</action>
+							</status>
+							<amazoncom>						
+								<title>Amazon.com Settings</title>
+								<sort_order>35</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/com</action>
+								</selection>
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/com</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/com</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/com</action>
+									</manualsetup>	
+								</children>
+							</amazoncom>
+							<amazonuk>						
+								<title>Amazon.co.uk Settings</title>
+								<sort_order>45</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/uk</action>
+								</selection>		
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+										<categorise module="amazonimport">
+											<title>Category Mapping</title>
+											<sort_order>160</sort_order>
+											<action>amazonimport/categorise/uk</action>
+										</categorise>					
+										<mapping module="amazonimport">
+											<title>Field Mapping</title>
+											<sort_order>170</sort_order>w
+											<action>amazonimport/mapping/uk</action>
+										</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/uk</action>
+									</manualsetup>
+								</children>
+							</amazonuk>
+							<amazonfr>						
+								<title>Amazon.fr Settings</title>
+								<sort_order>55</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/fr</action>
+								</selection><advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/fr</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/fr</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/fr</action>
+									</manualsetup>		
+								</children>
+							</amazonfr>
+							<amazonde>						
+								<title>Amazon.de Listings</title>
+								<sort_order>65</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/de</action>
+								</selection>	
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/de</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/de</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/de</action>
+									</manualsetup>		
+								</children>
+							</amazonde>							
+							<logging module="amazonimport">
+								<title>Communication Log</title>
+								<sort_order>120</sort_order>
+								<action>amazonimport/logging/index</action>
+							</logging>	
+							<licensing module="amazonimport">
+								<title>View / Update License</title>
+								<sort_order>150</sort_order>
+								<action>amazonimport/licensing</action>
+							</licensing>
+						</children>
+					</amazon>
+							
+					</children>
+				</admin>
+			</resources>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+        	    <admin>
+                    <children>
+                        <system>
+                            <children>
+                            <config>
+                                <children>
+                                    <amazonint>
+                                        <title>Amazon Integration</title>
+                                    </amazonint>
+                                </children>
+                            </config>
+                            </children>
+                        </system>
+                        </children>
+                </admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<amazonimport>
+					<file>amazonimport.xml</file>
+				</amazonimport>
+			</updates>
+		</layout>
+		</config>

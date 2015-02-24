@@ -1,0 +1,1163 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<camiloo translate="label" module="core">
+			<label>The Camiloo Toolbox</label>
+			<sort_order>120</sort_order>
+		</camiloo>
+	</tabs>
+   <sections>
+        <amazonint translate="label">
+            <label>Amazon Integration</label>
+			<tab>camiloo</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+            <repricingcom translate="label">
+                    <label>Competitive Repricing [USA]</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+						<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Competitive Repricing</b></p>
+<p>Competitive Repricing compares the price you are selling a product for against those of your competitors. 
+You can automatically reprice your products within strict boundaries (maximum price and minimum price) to undercut your competitors by one pence / one cent, 
+making your listing display as 'top of the pile' on Amazon by default. You will also be able to create a 'blacklist' of sellers whom you feel you are 
+not in competition with simply by entering their store name.<br /><br />
+</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+                    	
+					    <ignore_penny_sellers>
+						    <label>Ignore penny sellers:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_penny_sellers>
+						 <undercut_value>
+						    <label>Value to undercut by:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>15</sort_order>
+							<comment>To undercut by one pence/cent enter 0.01 for example</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </undercut_value>
+						  <ignore_sellers>
+						    <label>Custom list of sellers to ignore:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>20</sort_order>
+							<comment>Enter a comma separated list of sellers to disregard e.g. mytopcameras,topseller22,foobar</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_sellers>
+						 <minimum_price_attribute>
+						    <label>Minimum price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>25</sort_order>
+							<comment>Product attribute which contains the minimum Amazon selling price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </minimum_price_attribute>
+						 <competitive_price_attribute>
+						    <label>Calculated price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>30</sort_order>
+							<comment>Product attribute into which to save the calculated price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </competitive_price_attribute>
+						 <exclude_feedback_below>
+						    <label>Exclude sellers with feedback score less than [0.0-5.0]:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>35</sort_order>
+							<comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_feedback_below>
+						 <exclude_ratings_below>
+						    <label>Exclude sellers with less than x ratings:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>40</sort_order>
+							<comment>Sellers with less than the entered number of ratings are excluded</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_ratings_below>
+						 <shipping_rate>
+						    <label>Standard Shipping Price for Calculation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>45</sort_order>
+							<comment>This shipping price will be subtracted from the item price to ensure that you become the cheapest after shipping price is added by Amazon. Please enter a decimal number without spaces or currency signs, or alternatively enter a product attribute code</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </shipping_rate>
+					</fields>
+			</repricingcom>
+			<repricinguk translate="label">
+                    <label>Competitive Repricing [UK]</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+						<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Competitive Repricing</b></p>
+<p>Competitive Repricing compares the price you are selling a product for against those of your competitors. 
+You can automatically reprice your products within strict boundaries (maximum price and minimum price) to undercut your competitors by one pence / one cent, 
+making your listing display as 'top of the pile' on Amazon by default. You will also be able to create a 'blacklist' of sellers whom you feel you are 
+not in competition with simply by entering their store name.<br /><br />
+</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+                    	
+					    <ignore_penny_sellers>
+						    <label>Ignore penny sellers:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_penny_sellers>
+						 <undercut_value>
+						    <label>Value to undercut by:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>15</sort_order>
+							<comment>To undercut by one pence/cent enter 0.01 for example</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </undercut_value>
+						 <ignore_sellers>
+						    <label>Custom list of sellers to ignore:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>20</sort_order>
+							<comment>Enter a comma separated list of sellers to disregard e.g. mytopcameras,topseller22,foobar</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_sellers>
+						 <minimum_price_attribute>
+						    <label>Minimum price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>25</sort_order>
+							<comment>Product attribute which contains the minimum Amazon selling price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </minimum_price_attribute>
+						 <competitive_price_attribute>
+						    <label>Calculated price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>30</sort_order>
+							<comment>Product attribute into which to save the calculated price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </competitive_price_attribute>
+						 <exclude_feedback_below>
+						    <label>Exclude sellers with feedback score less than [0.0-5.0]:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>35</sort_order>
+							<comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_feedback_below>
+						 <exclude_ratings_below>
+						    <label>Exclude sellers with less than x ratings:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>40</sort_order>
+							<comment>Sellers with less than the entered number of ratings are excluded</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_ratings_below>
+						 <shipping_rate>
+						    <label>Standard Shipping Price for Calculation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>45</sort_order>
+							<comment>This shipping price will be subtracted from the item price to ensure that you become the cheapest after shipping price is added by Amazon. Please enter a decimal number without spaces or currency signs, or alternatively enter a product attribute code</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </shipping_rate>
+					</fields>
+			</repricinguk>
+<repricingfr translate="label">
+                    <label>Competitive Repricing [France]</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+						<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Competitive Repricing</b></p>
+<p>Competitive Repricing compares the price you are selling a product for against those of your competitors. 
+You can automatically reprice your products within strict boundaries (maximum price and minimum price) to undercut your competitors by one pence / one cent, 
+making your listing display as 'top of the pile' on Amazon by default. You will also be able to create a 'blacklist' of sellers whom you feel you are 
+not in competition with simply by entering their store name.<br /><br />
+</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+                    	
+					    <ignore_penny_sellers>
+						    <label>Ignore penny sellers:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_penny_sellers>
+						 <undercut_value>
+						    <label>Value to undercut by:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>15</sort_order>
+							<comment>To undercut by one pence/cent enter 0.01 for example</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </undercut_value>
+						 <ignore_sellers>
+						    <label>Custom list of sellers to ignore:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>20</sort_order>
+							<comment>Enter a comma separated list of sellers to disregard e.g. mytopcameras,topseller22,foobar</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_sellers>
+						 <minimum_price_attribute>
+						    <label>Minimum price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>25</sort_order>
+							<comment>Product attribute which contains the minimum Amazon selling price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </minimum_price_attribute>
+						 <competitive_price_attribute>
+						    <label>Calculated price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>30</sort_order>
+							<comment>Product attribute into which to save the calculated price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </competitive_price_attribute>
+						 <exclude_feedback_below>
+						    <label>Exclude sellers with feedback score less than [0.0-5.0]:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>35</sort_order>
+							<comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_feedback_below>
+						 <exclude_ratings_below>
+						    <label>Exclude sellers with less than x ratings:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>40</sort_order>
+							<comment>Sellers with less than the entered number of ratings are excluded</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_ratings_below>
+						 <shipping_rate>
+						    <label>Standard Shipping Price for Calculation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>45</sort_order>
+							<comment>This shipping price will be subtracted from the item price to ensure that you become the cheapest after shipping price is added by Amazon. Please enter a decimal number without spaces or currency signs, or alternatively enter a product attribute code</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </shipping_rate>
+					</fields>
+			</repricingfr>
+			
+			<repricingde translate="label">
+                    <label>Competitive Repricing [Germany]</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+						<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Competitive Repricing</b></p>
+<p>Competitive Repricing compares the price you are selling a product for against those of your competitors. 
+You can automatically reprice your products within strict boundaries (maximum price and minimum price) to undercut your competitors by one pence / one cent, 
+making your listing display as 'top of the pile' on Amazon by default. You will also be able to create a 'blacklist' of sellers whom you feel you are 
+not in competition with simply by entering their store name.<br /><br />
+</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+                    	
+					    <ignore_penny_sellers>
+						    <label>Ignore penny sellers:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_penny_sellers>
+						 <undercut_value>
+						    <label>Value to undercut by:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>15</sort_order>
+							<comment>To undercut by one pence/cent enter 0.01 for example</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </undercut_value>
+						 <ignore_sellers>
+						    <label>Custom list of sellers to ignore:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>20</sort_order>
+							<comment>Enter a comma separated list of sellers to disregard e.g. mytopcameras,topseller22,foobar</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </ignore_sellers>
+						 <minimum_price_attribute>
+						    <label>Minimum price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>25</sort_order>
+							<comment>Product attribute which contains the minimum Amazon selling price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </minimum_price_attribute>
+						 <competitive_price_attribute>
+						    <label>Calculated price attribute:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>30</sort_order>
+							<comment>Product attribute into which to save the calculated price</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </competitive_price_attribute>
+						 <exclude_feedback_below>
+						    <label>Exclude sellers with feedback score less than [0.0-5.0]:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>35</sort_order>
+							<comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_feedback_below>
+						 <exclude_ratings_below>
+						    <label>Exclude sellers with less than x ratings:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>40</sort_order>
+							<comment>Sellers with less than the entered number of ratings are excluded</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </exclude_ratings_below>
+						 <shipping_rate>
+						    <label>Standard Shipping Price for Calculation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>45</sort_order>
+							<comment>This shipping price will be subtracted from the item price to ensure that you become the cheapest after shipping price is added by Amazon. Please enter a decimal number without spaces or currency signs, or alternatively enter a product attribute code</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </shipping_rate>
+					</fields>
+			</repricingde>
+
+            <pricing translate="label">
+                    <label>Price Control</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+						<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Pricing Control</b></p>
+<p>We have made it easier to control the price which is sent to Amazon for each of your products. Below are a series of options to help you to manage your pricing:<br /><br />
+
+<b>Price Inflation Percentage</b>: Add an attribute to your products on Magento and then into this attribute enter a percentage of the website price which you would like to add to the price published to Amazon. Then, enter the attribute code in the box below. For example, if a toy is sold for 5.00 on your Magento store, you may wish to add 0.50 on top of this price when selling on Amazon. To do this, you would set the value of the attribute selected to 10. This will add 10% to the original price, which would make the final price 5.50.<br /><br />
+
+<b>Price Inflation Value</b>: Add an attribute to your products on Magento and then into this attribute enter a currency value (without a currency symbol) which you would like to add to the price published to Amazon. Then, enter the attribute code in the box below. For example, if a toy is sold for 5.00 on your Magento store, you may wish to add 0.50 on top of this price when selling on Amazon. To do this, you would set the value of the attribute selected to 0.50. This will add 0.50 to the original price, which would make the final price 5.50. Please note that if used in combination with the above percentage inflation, percentage inflation will occur first.<br /><br />
+
+<b>Add Tax Percentage to Catalog Prices</b>: If you have entered all of your product prices excluding tax, you should use this setting to quickly increase the prices of your products for Amazon by the Tax percentage you charge on your items.<br /><br />
+
+<b>Follow 'Special Prices'</b>: Control whether you would like the module to follow 'special prices' on your store. If set to 'Enabled' and used in combination with the above inflation rules, the inflation rules will occur on the 'special price'.<br /><br />
+
+<b>Custom Price</b>: Add an attribute to your products and then enter the attribute code below. You can then set a completely custom price for your Amazon listings by entering a value for this attribute and enabling custom prices below.</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+					     <enabled_percent_inflation>
+						    <label>Percentage based inflation:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_percent_inflation>
+					     <percent_inflation_attribute>
+						    <label>Attribute code for percentage inflation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>15</sort_order>
+							<comment>------------------------------------------</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </percent_inflation_attribute>
+					     <enabled_value_inflation>
+						    <label>Value based inflation:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_value_inflation>
+					     <value_inflation_attribute>
+						    <label>Attribute code for value based inflation:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+							<comment>------------------------------------------</comment>
+                            <show_in_store>0</show_in_store>
+						 </value_inflation_attribute>
+					     <enabled_add_tax>
+						    <label>Add tax percentage to catalog price:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_add_tax>
+					     <tax_percentage_to_add>
+						    <label>Tax percentage to add (without % symbol):</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>------------------------------------------</comment>
+						 </tax_percentage_to_add>						 
+					     <track_special_prices>
+						    <label>Follow Special Prices:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+							<comment>------------------------------------------</comment>
+                            <show_in_store>0</show_in_store>
+						 </track_special_prices>
+					     <enabled_custom_prices>
+						    <label>Custom Prices for Amazon:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_custom_prices>
+					     <custom_prices_attribute>
+						    <label>Attribute code for custom prices:</label>
+                            <frontend_type>text</frontend_type>
+                        	<sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </custom_prices_attribute>
+						 <inflate_special_price>
+						     <label>Allow inflation of special price:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </inflate_special_price>
+					</fields>
+			</pricing>
+			<standard_product_id>
+				<label>Standard Product Identifier</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>2</sort_order>
+							<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>What is a Standard Product Identifier</b></p>
+<p>The Amazon Catalogue retains its accuracy by generally only allowing products to be listed when a 'standard product identifier' is provided. There are exceptions to this rule, but generally only products which have a UPC, EAN or ISBN (or an amazon-assigned ASIN) identifier can be listed on Amazon.<br /><br />
+
+We have developed the Find Products on Amazon Wizard as an attempt at reducing the need for you to have this information about your products to hand. This tool searches Amazons expansive database for matches based on product name, manufacturer part number, or any other piece of information you have on the product.<br /><br />
+
+If the Find Products on Amazon Wizard fails to locate your product however, you may be required by Amazon to supply a standard product identifer for your products. To make this as easy as possible, the two form fields below allow you to specify a product attribute code containing your standard product identifiers and Product Identifier type this attribute contains.<br /><br />
+
+Don't worry if you only have values for some products in this attribute; if no value is found for a product, the module will still attempt to submit your product data.<br /><br />
+
+Merchants who have an exception from using these codes may ignore this section of the configuration area.</p>
+</div>
+</div>
+]]></comment>
+				<show_in_default>1</show_in_default>
+				<show_in_website>0</show_in_website>
+				<show_in_store>0</show_in_store>
+				<fields>
+					<productidcodetype translate="label">
+                            <label>Product ID Type</label>
+                            <frontend_type>text</frontend_type>
+          					<comment><![CDATA[Can be one of the following: ISBN ASIN EAN GTIN UPC]]></comment>
+							<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </productidcodetype>
+					    <productidmap translate="label">
+                            <label>Product ID Attribute</label>
+                            <frontend_type>text</frontend_type>
+          					<comment><![CDATA[Please enter the code for the attribute containing this information]]></comment>
+							<sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </productidmap>
+				</fields>			
+			</standard_product_id>
+			<general translate="label">
+                    <label>General settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+					     <show_disabled>
+						    <label>Show Disabled Products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+          					<comment><![CDATA[Set this option to Disabled to hide all disabled products in every view and export within the module]]></comment>
+                        	<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </show_disabled>
+						 <hide_help_tips>
+						    <label>Hide Help Tips</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+          					<comment><![CDATA[Advanced users may wish to hide some of the help tips embedded within the screens of this module. You may do this by setting this to Enabled]]></comment>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </hide_help_tips>
+						 <import_time_as_order_time>
+						    <label>Use time order was placed on Amazon when importing orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+          					<comment><![CDATA[If set to enabled the order will appear to have been placed on Magento at the time it was placed on Amazon]]></comment>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </import_time_as_order_time>
+						<shiponcomplete translate="label">
+        					<label>Send shipment to Amazon when shipment is first made?</label>
+        					<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+        					<comment><![CDATA[Set to 'Disable' if you enter tracking information for your shipments]]></comment>
+        					<sort_order>1</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</shiponcomplete>
+						<emailfullxmldebug translate="label">
+        					<label>E-mail Full XML Messages</label>
+        					<frontend_type>text</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+        					<comment><![CDATA[Enter an e-mail address to which a copy of the XML messages should be sent]]></comment>
+        					<sort_order>99</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</emailfullxmldebug>
+						<customqtymapping translate="label">
+        					<label>Custom Qty Mapping</label>
+        					<frontend_type>text</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+        					<comment><![CDATA[Enter a product attribute which contains the quantity value to send to Amazon (optional)]]></comment>
+        					<sort_order>200</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</customqtymapping>
+						<stopselllimit translate="label">
+        					<label>Stop Sell Limit Attribute</label>
+        					<frontend_type>text</frontend_type>
+        					<comment><![CDATA[Enter a product attribute which contains the quantity value, once reached, causes the product to stop selling on Amazon (optional)]]></comment>
+        					<sort_order>203</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</stopselllimit>
+					<orderhistorydays translate="label">
+        					<label>Number of days of past orders to import</label>
+        					<frontend_type>text</frontend_type>
+                            			<source_model>adminhtml/system_config_source_enabledisable</source_model>
+        					<comment><![CDATA[Enter a number of days history for which to import orders from Amazon. The default value is 3]]></comment>
+        					<sort_order>204</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</orderhistorydays>
+					<repricedebugpid translate="label">
+        					<label>Product ID to inspect repricing</label>
+        					<frontend_type>text</frontend_type>
+                            			<source_model>adminhtml/system_config_source_enabledisable</source_model>
+        					<comment><![CDATA[Enter a product ID for a product for which you want to inspect the repricing calculation. This is emailed to the same email address as the full XML feed debug messages]]></comment>
+        					<sort_order>205</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</repricedebugpid>
+					<stockfrequency translate="label">
+        					<label>Stock update frequency</label>
+        					<frontend_type>select</frontend_type>
+                            			<source_model>amazonimport/feedfrequencysource</source_model>
+        					<comment><![CDATA[Enter the frequency stock updates are sent to Amazon when enabled]]></comment>
+        					<sort_order>206</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</stockfrequency>
+					<pricefrequency translate="label">
+        					<label>Price update frequency</label>
+        					<frontend_type>select</frontend_type>
+                            			<source_model>amazonimport/feedfrequencysource</source_model>
+        					<comment><![CDATA[Enter the frequency price updates are sent to Amazon when enabled]]></comment>
+        					<sort_order>207</sort_order>
+        					<show_in_default>1</show_in_default>
+        					<show_in_website>0</show_in_website>
+        					<show_in_store>0</show_in_store>
+       					</pricefrequency>
+					</fields>
+			</general>
+			<amazoncom translate="label">
+                    <label>Amazon USA Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+					<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Amazon USA Integration</b></p>
+<p>In order to use this module as of v2.0, you must first authorise the module to access your Amazon Seller Central account. To do so, please click on the link below and log into your account.</p>
+
+<div class="box" style="background-color:#FFFFFF"><p><center><span class="grand-total">After logging in, select 'I want to use an application to access my Amazon seller account with MWS.' and click 'Next'.</span><br />
+<a href="https://sellercentral.amazon.com/gp/mws/registration/register.html?ie=UTF8&*Version*=1&*entries*=0&applicationName=Camiloo&appDevMWSAccountId=8113-5303-0129" target="_blank">Click here</a></center></p>
+</div>
+<p>On completion, please enter the value <b>Merchant ID</b> below.</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+					    <mpid translate="label">
+                            <label>Marketplace ID:</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mpid>
+                        <mid translate="label">
+                            <label>Merchant ID:</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mid>
+						<store translate="label">
+                            <label>Import orders into store:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_store</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+             	    	 </store>
+						 <enabled_import>
+						    <label>Amazon USA Order Import:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_import>
+						 <enabled_dispatch>
+						    <label>Amazon USA Order Dispatch:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_dispatch>
+						 <enabled_upload>
+						    <label>Amazon USA Product Upload:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_upload>
+						 <enabled_sync>
+						    <label>Amazon USA Stock Sync:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_sync>
+						 <enabled_prices>
+						    <label>Amazon USA Upload Prices:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_prices>
+						 <enabled_images>
+						    <label>Amazon USA Upload Product Images:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_images>
+						 <currency>
+						    <label>Currency for Amazon USA:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amazonimport/currencysource</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </currency>
+						<quicksetuptaxcode translate="label">
+                            <label>Product Tax Code for Find Products on Amazon products</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>13</sort_order>
+							<comment><![CDATA[ To submit a product tax code with your Find Products on Amazon products, enter the code here, must be one of A_GEN_TAX or A_GEN_NOTAX. ]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </quicksetuptaxcode>
+					</fields>
+				</amazoncom>
+				
+                <amazonuk translate="label">
+                    <label>Amazon UK Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                   		<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Amazon UK Integration</b></p>
+<p>In order to use this module as of v2.0, you must first authorise the module to access your Amazon Seller Central account. To do so, please click on the link below and log into your account.</p>
+
+<div class="box" style="background-color:#FFFFFF"><p><center><span class="grand-total">After logging in, select 'I want to use an application to access my Amazon seller account with MWS.' and click 'Next'.</span><br /><a href="https://sellercentral.amazon.co.uk/gp/mws/registration/register.html?ie=UTF8&*Version*=1&*entries*=0&applicationName=Camiloo&appDevMWSAccountId=8113-5303-0129" target="_blank">Click here</a></center></p>
+</div>
+<p>On completion, please enter the value <b>Merchant ID</b> below.</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+					    <mpid translate="label">
+                            <label>Marketplace ID:</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mpid>
+                        <mid translate="label">
+                            <label>Merchant ID:</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mid>	
+						<store translate="label">
+                            <label>Import orders into store:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_store</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+             	    	 </store>						
+						 <enabled_import>
+						    <label>Amazon UK Order Import:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_import>
+						 <enabled_dispatch>
+						    <label>Amazon UK Order Dispatch:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_dispatch>
+						 <enabled_upload>
+						    <label>Amazon UK Product Upload:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_upload>
+						 <enabled_sync>
+						    <label>Amazon UK Stock Sync:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_sync>
+						 <enabled_prices>
+						    <label>Amazon UK Upload Prices:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_prices>
+						 <enabled_images>
+						    <label>Amazon UK Upload Product Images:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_images>
+						 <currency>
+						    <label>Currency for Amazon UK:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amazonimport/currencysource</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </currency>
+						<quicksetuptaxcode translate="label">
+                            <label>Product Tax Code for Find Products on Amazon products</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>13</sort_order>
+							<comment><![CDATA[ To submit a product tax code with your Find Products on Amazon products, enter the code here, must be one of A_GEN_TAX or A_GEN_NOTAX. ]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </quicksetuptaxcode>
+					</fields>
+					</amazonuk>
+					<amazonfr translate="label">
+                    <label>Amazon France Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    		<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Amazon France Integration</b></p>
+<p>In order to use this module as of v2.0, you must first authorise the module to access your Amazon Seller Central account. To do so, please click on the link below and log into your account.</p>
+
+<div class="box" style="background-color:#FFFFFF"><p><center><span class="grand-total">After logging in, select 'I want to use an application to access my Amazon seller account with MWS.' and click 'Next'.</span><br /><a href="https://sellercentral.amazon.fr/gp/mws/registration/register.html?ie=UTF8&*Version*=1&*entries*=0&applicationName=Camiloo&appDevMWSAccountId=8113-5303-0129" target="_blank">Click here</a></center></p>
+</div>
+<p>On completion, please enter the value <b>Merchant ID</b> below.</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+					    <mpid translate="label">
+                            <label>Marketplace ID:</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mpid>
+                        <mid translate="label">
+                            <label>Merchant ID:</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mid>		
+						<store translate="label">
+                            <label>Import orders into store:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_store</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+             	    	 </store>					
+						 <enabled_import>
+						    <label>Amazon France Order Import:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_import>
+						 <enabled_dispatch>
+						    <label>Amazon France Order Dispatch:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_dispatch>
+						 <enabled_upload>
+						    <label>Amazon France Product Upload:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_upload>
+						 <enabled_sync>
+						    <label>Amazon France Stock Sync:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_sync>
+						 <enabled_prices>
+						    <label>Amazon France Upload Prices:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_prices>
+						 <enabled_images>
+						    <label>Amazon France Upload Product Images:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_images>						 
+						 <currency>
+						    <label>Currency for Amazon France:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amazonimport/currencysource</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </currency>
+						<quicksetuptaxcode translate="label">
+                            <label>Product Tax Code for Find Products on Amazon products</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>13</sort_order>
+							<comment><![CDATA[ To submit a product tax code with your Find Products on Amazon products, enter the code here, must be one of A_GEN_TAX or A_GEN_NOTAX. ]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </quicksetuptaxcode>
+					</fields>
+					</amazonfr>
+					<amazonde translate="label">
+                    <label>Amazon Germany Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                   		<comment><![CDATA[<br />
+<div class="custom-options">
+<div class="box">
+<p class="grand-total"><br /><b>Amazon Germany Integration</b></p>
+<p>In order to use this module as of v2.0, you must first authorise the module to access your Amazon Seller Central account. To do so, please click on the link below and log into your account.</p>
+
+<div class="box" style="background-color:#FFFFFF"><p><center><span class="grand-total">After logging in, select 'I want to use an application to access my Amazon seller account with MWS.' and click 'Next'.</span><br /><a href="https://sellercentral.amazon.de/gp/mws/registration/register.html?ie=UTF8&*Version*=1&*entries*=0&applicationName=Camiloo&appDevMWSAccountId=8113-5303-0129" target="_blank">Click here</a></center></p>
+</div>
+<p>On completion, please enter the value <b>Merchant ID</b> below.</p>
+</div>
+</div>
+]]></comment>
+                    <fields>
+					    <mpid translate="label">
+                            <label>Marketplace ID:</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mpid>
+                        <mid translate="label">
+                            <label>Merchant ID:</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mid>
+						<store translate="label">
+                            <label>Import orders into store:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_store</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+             	    	 </store>		
+						 <enabled_import>
+						    <label>Amazon Germany Order Import:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_import>
+						 <enabled_dispatch>
+						    <label>Amazon Germany Order Dispatch:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_dispatch>
+						 <enabled_upload>
+						    <label>Amazon Germany Product Upload:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_upload>
+						 <enabled_sync>
+						    <label>Amazon Germany Stock Sync:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_sync>
+						 <enabled_prices>
+						    <label>Amazon Germany Upload Prices:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_prices>
+						 <enabled_images>
+						    <label>Amazon Germany Upload Product Images:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                        	<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </enabled_images>
+						 <currency>
+						    <label>Currency for Amazon Germany:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>amazonimport/currencysource</source_model>
+                        	<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </currency>
+						<quicksetuptaxcode translate="label">
+                            <label>Product Tax Code for Find Products on Amazon products</label>
+                            <frontend_type>text</frontend_type>
+	      					<sort_order>13</sort_order>
+							<comment><![CDATA[ To submit a product tax code with your Find Products on Amazon products, enter the code here, must be one of A_GEN_TAX or A_GEN_NOTAX. ]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </quicksetuptaxcode>
+					</fields>
+					</amazonde>
+				</groups>
+			</amazonint>
+		</sections>
+	</config>

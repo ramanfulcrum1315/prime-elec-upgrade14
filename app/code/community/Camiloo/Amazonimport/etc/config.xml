@@ -1,0 +1,1086 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Camiloo_Amazonimport>
+            <version>2.3.3</version>
+        </Camiloo_Amazonimport>
+    </modules>
+    <frontend>
+	    <secure_url>
+             <amazonimport_cronrun>/amazonimport/cron/cronrun/</amazonimport_cronrun>
+        </secure_url>
+        <routers>
+            <amazonimport>
+                <use>standard</use>
+                <args>
+                    <module>Camiloo_Amazonimport</module>
+                    <frontName>amazonimport</frontName>
+                </args>
+            </amazonimport>
+        </routers>
+        <layout>
+            <updates>
+                <amazonimport>
+                    <file>amazonimport.xml</file>
+                </amazonimport>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<amazonimport>
+				<use>admin</use>
+				<args>
+					<module>Camiloo_Amazonimport</module>
+					<frontName>amazonimport</frontName>
+				</args>
+			</amazonimport>
+        </routers>
+    </admin>
+    <adminhtml>	
+			<menu>
+					<amazon>
+						<title>Amazon</title>
+						<sort_order>35</sort_order>
+						<children>
+							<amazoncom>						
+								<title>Amazon.com Listings</title>
+								<sort_order>35</sort_order>
+								<children>
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/com</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/com</action>
+									</mapping>								
+									</children>
+								</advanced>																	
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/com</action>
+								</selection>	
+								<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/com</action>
+									</manualsetup>										
+								<massupdate module="amazonimport">
+										<title>Mass Update Tool</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/massupdate/com</action>
+								</massupdate>				
+								</children>
+							</amazoncom>
+							<amazonuk>						
+								<title>Amazon.co.uk Listings</title>
+								<sort_order>45</sort_order>
+								<children>			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/uk</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/uk</action>
+									</mapping>								
+									</children>
+								</advanced>																	
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/uk</action>
+								</selection>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/uk</action>
+									</manualsetup>								
+								<massupdate module="amazonimport">
+										<title>Mass Update Tool</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/massupdate/uk</action>
+								</massupdate>				
+								</children>
+							</amazonuk>
+							<amazonfr>						
+								<title>Amazon.fr Listings</title>
+								<sort_order>55</sort_order>
+								<children>																			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/fr</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/fr</action>
+									</mapping>						
+									</children>
+								</advanced>
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/fr</action>
+								</selection>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/fr</action>
+									</manualsetup>									
+								<massupdate module="amazonimport">
+										<title>Mass Update Tool</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/massupdate/fr</action>
+								</massupdate>			
+								</children>
+							</amazonfr>
+							<amazonde>						
+								<title>Amazon.de Listings</title>
+								<sort_order>65</sort_order>
+								<children>																			
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>10</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/de</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/de</action>
+									</mapping>							
+									</children>
+								</advanced>
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>20</sort_order>
+									<action>amazonimport/selection/de</action>
+								</selection>	
+								<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>30</sort_order>
+										<action>amazonimport/manualsetup/de</action>
+									</manualsetup>										
+									<massupdate module="amazonimport">
+										<title>Mass Update Tool</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/massupdate/de</action>
+								</massupdate>			
+								</children>
+							</amazonde>					
+									<logging module="amazonimport">
+										<title>Communication Log</title>
+										<sort_order>120</sort_order>
+										<action>amazonimport/logging/index</action>
+									</logging>	
+									<licensing module="amazonimport">
+										<title>View / Update License</title>
+										<sort_order>150</sort_order>
+										<action>amazonimport/licensing</action>
+									</licensing>												
+							</children>
+					</amazon>
+			</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+ 					    
+					  <amazon>
+						<title>Amazon</title>
+						<sort_order>35</sort_order>
+						<children>
+							<status module="amazonimport">
+								<title>Overview</title>
+								<sort_order>1</sort_order>
+								<action>amazonimport/overview/index</action>
+							</status>
+							<amazoncom>						
+								<title>Amazon.com Settings</title>
+								<sort_order>35</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/com</action>
+								</selection>
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/com</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/com</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/com</action>
+									</manualsetup>	
+								</children>
+							</amazoncom>
+							<amazonuk>						
+								<title>Amazon.co.uk Settings</title>
+								<sort_order>45</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/uk</action>
+								</selection>		
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+										<categorise module="amazonimport">
+											<title>Category Mapping</title>
+											<sort_order>160</sort_order>
+											<action>amazonimport/categorise/uk</action>
+										</categorise>					
+										<mapping module="amazonimport">
+											<title>Field Mapping</title>
+											<sort_order>170</sort_order>w
+											<action>amazonimport/mapping/uk</action>
+										</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/uk</action>
+									</manualsetup>
+								</children>
+							</amazonuk>
+							<amazonfr>						
+								<title>Amazon.fr Settings</title>
+								<sort_order>55</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/fr</action>
+								</selection><advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/fr</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/fr</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/fr</action>
+									</manualsetup>		
+								</children>
+							</amazonfr>
+							<amazonde>						
+								<title>Amazon.de Listings</title>
+								<sort_order>65</sort_order>
+								<children>																			
+								<selection module="amazonimport">
+									<title>Select Products to list</title>
+									<sort_order>100</sort_order>
+									<action>amazonimport/selection/de</action>
+								</selection>	
+								<advanced module="amazonimport">
+									<title>One Time Setup</title>
+									<sort_order>150</sort_order>
+									<children>																	
+									<categorise module="amazonimport">
+										<title>Category Mapping</title>
+										<sort_order>160</sort_order>
+										<action>amazonimport/categorise/de</action>
+									</categorise>					
+									<mapping module="amazonimport">
+										<title>Field Mapping</title>
+										<sort_order>170</sort_order>
+										<action>amazonimport/mapping/de</action>
+									</mapping>								
+									</children>
+								</advanced>
+									<manualsetup module="amazonimport">
+										<title>Review Products</title>
+										<sort_order>190</sort_order>
+										<action>amazonimport/manualsetup/de</action>
+									</manualsetup>		
+								</children>
+							</amazonde>							
+							<logging module="amazonimport">
+								<title>Communication Log</title>
+								<sort_order>120</sort_order>
+								<action>amazonimport/logging/index</action>
+							</logging>	
+							<licensing module="amazonimport">
+								<title>View / Update License</title>
+								<sort_order>150</sort_order>
+								<action>amazonimport/licensing</action>
+							</licensing>
+						</children>
+					</amazon>
+							
+					</children>
+				</admin>
+			</resources>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+        	    <admin>
+                    <children>
+                        <system>
+                            <children>
+                            <config>
+                                <children>
+                                    <amazonint>
+                                        <title>Amazon Integration</title>
+                                    </amazonint>
+                                </children>
+                            </config>
+                            </children>
+                        </system>
+                        </children>
+                </admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<amazonimport>
+					<file>amazonimport.xml</file>
+				</amazonimport>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+           <models>
+           	 <amazonimportlog>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportlog_mysql4</resourceModel>
+            </amazonimportlog>
+            <amazonimportlog_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportlog>
+                        <table>amazonimport_log</table>
+                    </amazonimportlog>
+                </entities>
+            </amazonimportlog_mysql4>
+           	<amazonimportcategorisecom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportcategorisecom_mysql4</resourceModel>
+            </amazonimportcategorisecom>
+            <amazonimportcategorisecom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportcategorisecom>
+                        <table>amazonimport_categorise_com</table>
+                    </amazonimportcategorisecom>
+                </entities>
+            </amazonimportcategorisecom_mysql4>
+			<amazonimportbrowsenodes>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportbrowsenodes_mysql4</resourceModel>
+            </amazonimportbrowsenodes>
+            <amazonimportbrowsenodes_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportbrowsenodes>
+                        <table>amazonimport_browsenodes</table>
+                    </amazonimportbrowsenodes>
+                </entities>
+            </amazonimportbrowsenodes_mysql4>
+			<amazonimportcategorymapping>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportcategorymapping_mysql4</resourceModel>
+            </amazonimportcategorymapping>
+            <amazonimportcategorymapping_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportcategorymapping>
+                        <table>amazonimport_categorymapping</table>
+                    </amazonimportcategorymapping>
+                </entities>
+            </amazonimportcategorymapping_mysql4>
+           	 <amazonimportcategoriseuk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportcategoriseuk_mysql4</resourceModel>
+            </amazonimportcategoriseuk>
+            <amazonimportcategoriseuk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportcategoriseuk>
+                        <table>amazonimport_categorise_uk</table>
+                    </amazonimportcategoriseuk>
+                </entities>
+            </amazonimportcategoriseuk_mysql4>
+           	 <amazonimportcategorisefr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportcategorisefr_mysql4</resourceModel>
+            </amazonimportcategorisefr>
+            <amazonimportcategorisefr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportcategorisefr>
+                        <table>amazonimport_categorise_fr</table>
+                    </amazonimportcategorisefr>
+                </entities>
+            </amazonimportcategorisefr_mysql4>
+           	 <amazonimportcategorisede>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportcategorisede_mysql4</resourceModel>
+            </amazonimportcategorisede>
+            <amazonimportcategorisede_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportcategorisede>
+                        <table>amazonimport_categorise_de</table>
+                    </amazonimportcategorisede>
+                </entities>
+            </amazonimportcategorisede_mysql4>			
+				<amazonimportsetupcom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportsetupcom_mysql4</resourceModel>
+            </amazonimportsetupcom>
+            <amazonimportsetupcom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportsetupcom>
+                        <table>amazonimport_setup_com</table>
+                    </amazonimportsetupcom>
+                </entities>
+            </amazonimportsetupcom_mysql4>
+           	 <amazonimportsetupuk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportsetupuk_mysql4</resourceModel>
+            </amazonimportsetupuk>
+            <amazonimportsetupuk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportsetupuk>
+                        <table>amazonimport_setup_uk</table>
+                    </amazonimportsetupuk>
+                </entities>
+            </amazonimportsetupuk_mysql4>
+           	 <amazonimportsetupfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportsetupfr_mysql4</resourceModel>
+            </amazonimportsetupfr>
+            <amazonimportsetupfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportsetupfr>
+                        <table>amazonimport_setup_fr</table>
+                    </amazonimportsetupfr>
+                </entities>
+            </amazonimportsetupfr_mysql4>
+           	 <amazonimportsetupde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportsetupde_mysql4</resourceModel>
+            </amazonimportsetupde>
+            <amazonimportsetupde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportsetupde>
+                        <table>amazonimport_setup_de</table>
+                    </amazonimportsetupde>
+                </entities>
+            </amazonimportsetupde_mysql4>
+			<amazonimportlistthiscom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportlistthiscom_mysql4</resourceModel>
+            </amazonimportlistthiscom>
+            <amazonimportlistthiscom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportlistthiscom>
+                        <table>amazonimport_listthis_com</table>
+                    </amazonimportlistthiscom>
+                </entities>
+            </amazonimportlistthiscom_mysql4>
+           	 <amazonimportlistthisuk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportlistthisuk_mysql4</resourceModel>
+            </amazonimportlistthisuk>
+            <amazonimportlistthisuk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportlistthisuk>
+                        <table>amazonimport_listthis_uk</table>
+                    </amazonimportlistthisuk>
+                </entities>
+            </amazonimportlistthisuk_mysql4>
+           	 <amazonimportlistthisfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportlistthisfr_mysql4</resourceModel>
+            </amazonimportlistthisfr>
+            <amazonimportlistthisfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportlistthisfr>
+                        <table>amazonimport_listthis_fr</table>
+                    </amazonimportlistthisfr>
+                </entities>
+            </amazonimportlistthisfr_mysql4>
+           	 <amazonimportlistthisde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportlistthisde_mysql4</resourceModel>
+            </amazonimportlistthisde>
+            <amazonimportlistthisde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportlistthisde>
+                        <table>amazonimport_listthis_de</table>
+                    </amazonimportlistthisde>
+                </entities>
+            </amazonimportlistthisde_mysql4>			
+			<amazonimportmappingcom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmappingcom_mysql4</resourceModel>
+            </amazonimportmappingcom>
+            <amazonimportmappingcom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmappingcom>
+                        <table>amazonimport_mapping_com</table>
+                    </amazonimportmappingcom>
+                </entities>
+            </amazonimportmappingcom_mysql4>
+           	 <amazonimportmappinguk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmappinguk_mysql4</resourceModel>
+            </amazonimportmappinguk>
+            <amazonimportmappinguk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmappinguk>
+                        <table>amazonimport_mapping_uk</table>
+                    </amazonimportmappinguk>
+                </entities>
+            </amazonimportmappinguk_mysql4>
+           	 <amazonimportmappingfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmappingfr_mysql4</resourceModel>
+            </amazonimportmappingfr>
+            <amazonimportmappingfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmappingfr>
+                        <table>amazonimport_mapping_fr</table>
+                    </amazonimportmappingfr>
+                </entities>
+            </amazonimportmappingfr_mysql4>
+           	 <amazonimportmappingde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmappingde_mysql4</resourceModel>
+            </amazonimportmappingde>
+            <amazonimportmappingde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmappingde>
+                        <table>amazonimport_mapping_de</table>
+                    </amazonimportmappingde>
+                </entities>
+            </amazonimportmappingde_mysql4>
+			<amazonimportmanualsetupcom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmanualsetupcom_mysql4</resourceModel>
+            </amazonimportmanualsetupcom>
+            <amazonimportmanualsetupcom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmanualsetupcom>
+                        <table>amazonimport_manualsetup_com</table>
+                    </amazonimportmanualsetupcom>
+                </entities>
+            </amazonimportmanualsetupcom_mysql4>
+           	 <amazonimportmanualsetupuk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmanualsetupuk_mysql4</resourceModel>
+            </amazonimportmanualsetupuk>
+            <amazonimportmanualsetupuk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmanualsetupuk>
+                        <table>amazonimport_manualsetup_uk</table>
+                    </amazonimportmanualsetupuk>
+                </entities>
+            </amazonimportmanualsetupuk_mysql4>
+           	 <amazonimportmanualsetupfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmanualsetupfr_mysql4</resourceModel>
+            </amazonimportmanualsetupfr>
+            <amazonimportmanualsetupfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmanualsetupfr>
+                        <table>amazonimport_manualsetup_fr</table>
+                    </amazonimportmanualsetupfr>
+                </entities>
+            </amazonimportmanualsetupfr_mysql4>
+           	 <amazonimportmanualsetupde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportmanualsetupde_mysql4</resourceModel>
+            </amazonimportmanualsetupde>
+            <amazonimportmanualsetupde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportmanualsetupde>
+                        <table>amazonimport_manualsetup_de</table>
+                    </amazonimportmanualsetupde>
+                </entities>
+            </amazonimportmanualsetupde_mysql4>						
+			<amazonimportvariationscom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportvariationscom_mysql4</resourceModel>
+            </amazonimportvariationscom>
+            <amazonimportvariationscom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportvariationscom>
+                        <table>amazonimport_variations_com</table>
+                    </amazonimportvariationscom>
+                </entities>
+            </amazonimportvariationscom_mysql4>
+           	 <amazonimportvariationsuk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportvariationsuk_mysql4</resourceModel>
+            </amazonimportvariationsuk>
+            <amazonimportvariationsuk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportvariationsuk>
+                        <table>amazonimport_variations_uk</table>
+                    </amazonimportvariationsuk>
+                </entities>
+            </amazonimportvariationsuk_mysql4>
+           	 <amazonimportvariationsfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportvariationsfr_mysql4</resourceModel>
+            </amazonimportvariationsfr>
+            <amazonimportvariationsfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportvariationsfr>
+                        <table>amazonimport_variations_fr</table>
+                    </amazonimportvariationsfr>
+                </entities>
+            </amazonimportvariationsfr_mysql4>
+           	 <amazonimportvariationsde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportvariationsde_mysql4</resourceModel>
+            </amazonimportvariationsde>
+            <amazonimportvariationsde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportvariationsde>
+                        <table>amazonimport_variations_de</table>
+                    </amazonimportvariationsde>
+                </entities>
+            </amazonimportvariationsde_mysql4>
+			<amazonimporterrorlogcom>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimporterrorlogcom_mysql4</resourceModel>
+            </amazonimporterrorlogcom>
+            <amazonimporterrorlogcom_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimporterrorlogcom>
+                        <table>amazonimport_errorlog_com</table>
+                    </amazonimporterrorlogcom>
+                </entities>
+            </amazonimporterrorlogcom_mysql4>
+           	 <amazonimporterrorloguk>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimporterrorloguk_mysql4</resourceModel>
+            </amazonimporterrorloguk>
+            <amazonimporterrorloguk_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimporterrorloguk>
+                        <table>amazonimport_errorlog_uk</table>
+                    </amazonimporterrorloguk>
+                </entities>
+            </amazonimporterrorloguk_mysql4>
+           	 <amazonimporterrorlogfr>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimporterrorlogfr_mysql4</resourceModel>
+            </amazonimporterrorlogfr>
+            <amazonimporterrorlogfr_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimporterrorlogfr>
+                        <table>amazonimport_errorlog_fr</table>
+                    </amazonimporterrorlogfr>
+                </entities>
+            </amazonimporterrorlogfr_mysql4>
+           	 <amazonimporterrorlogde>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimporterrorlogde_mysql4</resourceModel>
+            </amazonimporterrorlogde>
+            <amazonimporterrorlogde_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimporterrorlogde>
+                        <table>amazonimport_errorlog_de</table>
+                    </amazonimporterrorlogde>
+                </entities>
+            </amazonimporterrorlogde_mysql4>			
+			<amazonimportsurestream>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimportsurestream_mysql4</resourceModel>
+            </amazonimportsurestream>
+            <amazonimportsurestream_mysql4>
+                <class>Camiloo_Amazonimport_Model_Mysql4</class>
+                <entities>
+                    <amazonimportsurestream>
+                        <table>amazonimport_surestream</table>
+                    </amazonimportsurestream>
+                </entities>
+            </amazonimportsurestream_mysql4>
+            <amazonimport>
+                <class>Camiloo_Amazonimport_Model</class>
+                <resourceModel>amazonimport_entities</resourceModel>
+            </amazonimport>
+			<amazonlink>
+                <class>Camiloo_Amazonimport_Model_Amazonlink</class>
+            </amazonlink>
+            <amazonimport_entities>
+	            <class>Camiloo_Amazonimport_Model_Entity</class>
+	         </amazonimport_entities>
+		      <catalog>
+					<rewrite>
+						<resource_eav_mysql4_product>Camiloo_Amazonimport_Model_Loadparentsfix</resource_eav_mysql4_product>
+					</rewrite>
+			 </catalog>
+
+		
+	        </models>
+        <resources>
+            <amazonimport_setup>
+            <setup>
+               <module>Camiloo_Amazonimport</module>
+               <class>Camiloo_Amazonimport_Model_Entity_Setup</class>
+            </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </amazonimport_setup>
+            <amazonimport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </amazonimport_write>
+            <amazonimport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </amazonimport_read>
+			<amazonimportcategoriseuk_write><connection><use>core_write</use></connection></amazonimportcategoriseuk_write>
+            <amazonimportcategoriseuk_read><connection><use>core_read</use></connection></amazonimportcategoriseuk_read>			
+			<amazonimportcategorisefr_write><connection><use>core_write</use></connection></amazonimportcategorisefr_write>
+            <amazonimportcategorisefr_read><connection><use>core_read</use></connection></amazonimportcategorisefr_read>			
+			<amazonimportcategorisede_write><connection><use>core_write</use></connection></amazonimportcategorisede_write>
+            <amazonimportcategorisede_read><connection><use>core_read</use></connection></amazonimportcategorisede_read>			
+			<amazonimportcategorisecom_write><connection><use>core_write</use></connection></amazonimportcategorisecom_write>
+            <amazonimportcategorisecom_read><connection><use>core_read</use></connection></amazonimportcategorisecom_read>
+			
+			
+			<amazonimportvariationsuk_write><connection><use>core_write</use></connection></amazonimportvariationsuk_write>
+            <amazonimportvariationsuk_read><connection><use>core_read</use></connection></amazonimportvariationsuk_read>			
+			<amazonimportvariationsfr_write><connection><use>core_write</use></connection></amazonimportvariationsfr_write>
+            <amazonimportvariationsfr_read><connection><use>core_read</use></connection></amazonimportvariationsfr_read>			
+			<amazonimportvariationsde_write><connection><use>core_write</use></connection></amazonimportvariationsde_write>
+            <amazonimportvariationsde_read><connection><use>core_read</use></connection></amazonimportvariationsde_read>			
+			<amazonimportvariationscom_write><connection><use>core_write</use></connection></amazonimportvariationscom_write>
+            <amazonimportvariationscom_read><connection><use>core_read</use></connection></amazonimportvariationscom_read>
+			
+			<amazonimportmanualsetupuk_write><connection><use>core_write</use></connection></amazonimportmanualsetupuk_write>
+            <amazonimportmanualsetupuk_read><connection><use>core_read</use></connection></amazonimportmanualsetupuk_read>			
+			<amazonimportmanualsetupfr_write><connection><use>core_write</use></connection></amazonimportmanualsetupfr_write>
+            <amazonimportmanualsetupfr_read><connection><use>core_read</use></connection></amazonimportmanualsetupfr_read>			
+			<amazonimportmanualsetupde_write><connection><use>core_write</use></connection></amazonimportmanualsetupde_write>
+            <amazonimportmanualsetupde_read><connection><use>core_read</use></connection></amazonimportmanualsetupde_read>			
+			<amazonimportmanualsetupcom_write><connection><use>core_write</use></connection></amazonimportmanualsetupcom_write>
+            <amazonimportmanualsetupcom_read><connection><use>core_read</use></connection></amazonimportmanualsetupcom_read>
+			
+			<amazonimportmappinguk_write><connection><use>core_write</use></connection></amazonimportmappinguk_write>
+            <amazonimportmappinguk_read><connection><use>core_read</use></connection></amazonimportmappinguk_read>			
+			<amazonimportmappingfr_write><connection><use>core_write</use></connection></amazonimportmappingfr_write>
+            <amazonimportmappingfr_read><connection><use>core_read</use></connection></amazonimportmappingfr_read>			
+			<amazonimportmappingde_write><connection><use>core_write</use></connection></amazonimportmappingde_write>
+            <amazonimportmappingde_read><connection><use>core_read</use></connection></amazonimportmappingde_read>			
+			<amazonimportmappingcom_write><connection><use>core_write</use></connection></amazonimportmappingcom_write>
+            <amazonimportmappingcom_read><connection><use>core_read</use></connection></amazonimportmappingcom_read>
+						
+			<amazonimportsetupuk_write><connection><use>core_write</use></connection></amazonimportsetupuk_write>
+            <amazonimportsetupuk_read><connection><use>core_read</use></connection></amazonimportsetupuk_read>			
+			<amazonimportsetupfr_write><connection><use>core_write</use></connection></amazonimportsetupfr_write>
+            <amazonimportsetupfr_read><connection><use>core_read</use></connection></amazonimportsetupfr_read>			
+			<amazonimportsetupde_write><connection><use>core_write</use></connection></amazonimportsetupde_write>
+            <amazonimportsetupde_read><connection><use>core_read</use></connection></amazonimportsetupde_read>			
+			<amazonimportsetupcom_write><connection><use>core_write</use></connection></amazonimportsetupcom_write>
+            <amazonimportsetupcom_read><connection><use>core_read</use></connection></amazonimportsetupcom_read>
+						
+			<amazonimporterrorloguk_write><connection><use>core_write</use></connection></amazonimporterrorloguk_write>
+            <amazonimporterrorloguk_read><connection><use>core_read</use></connection></amazonimporterrorloguk_read>			
+			<amazonimporterrorlogfr_write><connection><use>core_write</use></connection></amazonimporterrorlogfr_write>
+            <amazonimporterrorlogfr_read><connection><use>core_read</use></connection></amazonimporterrorlogfr_read>			
+			<amazonimporterrorlogde_write><connection><use>core_write</use></connection></amazonimporterrorlogde_write>
+            <amazonimporterrorlogde_read><connection><use>core_read</use></connection></amazonimporterrorlogde_read>			
+			<amazonimporterrorlogcom_write><connection><use>core_write</use></connection></amazonimporterrorlogcom_write>
+            <amazonimporterrorlogcom_read><connection><use>core_read</use></connection></amazonimporterrorlogcom_read>
+			
+			<amazonimportlistthisuk_write><connection><use>core_write</use></connection></amazonimportlistthisuk_write>
+            <amazonimportlistthisuk_read><connection><use>core_read</use></connection></amazonimportlistthisuk_read>			
+			<amazonimportlistthisfr_write><connection><use>core_write</use></connection></amazonimportlistthisfr_write>
+            <amazonimportlistthisfr_read><connection><use>core_read</use></connection></amazonimportlistthisfr_read>			
+			<amazonimportlistthisde_write><connection><use>core_write</use></connection></amazonimportlistthisde_write>
+            <amazonimportlistthisde_read><connection><use>core_read</use></connection></amazonimportlistthisde_read>			
+			<amazonimportlistthiscom_write><connection><use>core_write</use></connection></amazonimportlistthiscom_write>
+            <amazonimportlistthiscom_read><connection><use>core_read</use></connection></amazonimportlistthiscom_read>
+			
+			
+			<amazonimportsurestream_write><connection><use>core_write</use></connection></amazonimportsurestream_write>
+            <amazonimportsurestream_read><connection><use>core_read</use></connection></amazonimportsurestream_read>
+					
+			<amazonimportlog_write><connection><use>core_write</use></connection></amazonimportlog_write>
+            <amazonimportlog_read><connection><use>core_read</use></connection></amazonimportlog_read>
+			
+			
+			<amazonimportbrowsenodes_write><connection><use>core_write</use></connection></amazonimportbrowsenodes_write>
+            <amazonimportbrowsenodes_read><connection><use>core_read</use></connection></amazonimportbrowsenodes_read>
+			
+			
+			<amazonimportcategorymapping_write><connection><use>core_write</use></connection></amazonimportcategorymapping_write>
+            <amazonimportcategorymapping_read><connection><use>core_read</use></connection></amazonimportcategorymapping_read>
+        </resources>
+        <blocks>
+        	<status>
+        		<class>Camiloo_Amazonimport_Block_Overview</class>
+			</status>	
+            <adminhtml>
+                <rewrite>
+                    <page_menu>Camiloo_Amazonimport_Block_Menu</page_menu>
+                </rewrite>
+            </adminhtml>
+            <amazonimport>
+                <class>Camiloo_Amazonimport_Block</class>
+            </amazonimport>
+            <licensing>
+                <class>Camiloo_Amazonimport_Block_Licensing</class>
+            </licensing>
+            <mapping>
+                <class>Camiloo_Amazonimport_Block_Mapping</class>
+            </mapping>
+            <listingstool>
+                <class>Camiloo_Amazonimport_Block_Listingstool</class>
+            </listingstool>
+            <publisher>
+                <class>Camiloo_Amazonimport_Block_Publisher</class>
+            </publisher>
+        </blocks>
+        <helpers>
+            <amazonimport>
+                <class>Camiloo_Amazonimport_Helper</class>
+            </amazonimport>
+        </helpers>
+		        <events>
+				 <sales_order_shipment_track_save_after>
+                <observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>saveTrackingToAmazon</method>
+                    </amazonimport>
+                </observers>
+            </sales_order_shipment_track_save_after>
+		   <sales_order_shipment_save_after>
+                <observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>shipAmazon</method>
+                    </amazonimport>
+                </observers>
+            </sales_order_shipment_save_after>
+          	<sales_order_invoice_pay>
+                <observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>getItemsForUpdate</method>
+                    </amazonimport>
+                </observers>			
+			</sales_order_invoice_pay>
+			<sales_order_place_after>
+                <observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>orderWasPlaced</method>
+                    </amazonimport>
+                </observers>			
+			</sales_order_place_after>
+          	<catalog_product_save_after>
+                <observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>productWasSaved</method>
+                    </amazonimport>
+                </observers>			
+			</catalog_product_save_after>
+			<sales_order_save_after>
+				<observers>
+                    <amazonimport>
+                        <type>model</type>
+                        <class>amazonimport/observer</class>
+                        <method>checkForCancellation</method>
+                    </amazonimport>
+				</observers>				
+			</sales_order_save_after>
+			<admin_system_config_changed_section_amazonint>
+				<observers>
+					<amazonimport>
+						<type>model</type>
+						<class>amazonimport/observer</class>
+						<method>refreshMenu</method>
+					</amazonimport>
+				</observers>
+			</admin_system_config_changed_section_amazonint>
+			<catalog_category_tree_move_after>
+				<observers>
+					<amazonimport>
+						<type>model</type>
+						<class>amazonimport/observer</class>
+						<method>categorywasmoved</method>
+					</amazonimport>
+				</observers>
+			</catalog_category_tree_move_after>
+            <catalog_category_save_after>
+                <observers>
+                    <amazonimport>
+                        <class>amazonimport/observer</class>
+                        <method>categorywassaved</method>
+                    </amazonimport>
+                </observers>
+            </catalog_category_save_after>
+            <catalog_category_delete_after>
+                <observers>
+                    <amazonimport>
+                        <class>amazonimport/observer</class>
+                        <method>categorywasdeleted</method>
+                    </amazonimport>
+                </observers>
+            </catalog_category_delete_after>
+			
+		  </events>
+    </global>	
+    <default>
+        <payment>
+            <amzpaymentmethodde>
+                <active>1</active>
+                <model>amazonimport/paymentmethodde</model>
+                <order_status>pending</order_status>
+                <title>Paid at Amazon.de</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </amzpaymentmethodde>
+            <amzpaymentmethoduk>
+                <active>1</active>
+                <model>amazonimport/paymentmethoduk</model>
+                <order_status>pending</order_status>
+                <title>Paid at Amazon.co.uk</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </amzpaymentmethoduk>
+            <amzpaymentmethodcom>
+                <active>1</active>
+                <model>amazonimport/paymentmethodcom</model>
+                <order_status>pending</order_status>
+                <title>Paid at Amazon.com</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </amzpaymentmethodcom>
+            <amzpaymentmethodfr>
+                <active>1</active>
+                <model>amazonimport/paymentmethodfr</model>
+                <order_status>pending</order_status>
+                <title>Paid at Amazon.fr</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </amzpaymentmethodfr>
+		</payment>
+	</default>
+	<crontab>
+        <jobs>
+            <amazonimport_runeveryhour>
+                <schedule><cron_expr>0 * * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryHour</model></run>
+            </amazonimport_runeveryhour>
+            <amazonimport_runeveryfive>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryFive</model></run>
+            </amazonimport_runeveryfive>
+            <amazonimport_runeverythirty>
+                <schedule><cron_expr>*/30 * * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryThirty</model></run>
+            </amazonimport_runeverythirty>
+            <amazonimport_runeveryfifteen>
+                <schedule><cron_expr>*/15 * * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryFifteen</model></run>
+            </amazonimport_runeveryfifteen>
+            <amazonimport_runonlyatmidnight>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runOnlyAtMidnight</model></run>
+            </amazonimport_runonlyatmidnight>
+	    <amazonimport_runeveryfourhours>
+                <schedule><cron_expr>0 */4 * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryFourHours</model></run>
+            </amazonimport_runeveryfourhours>
+	    <amazonimport_runeverytwelvehours>
+                <schedule><cron_expr>0 */12 * * *</cron_expr></schedule>
+                <run><model>amazonimport/timedjobscheduler::runEveryTwelveHours</model></run>
+            </amazonimport_runeverytwelvehours>
+        </jobs>
+    </crontab>
+</config>
