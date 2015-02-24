@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OCM_Mods>
+            <active>true</active>
+            <codePool>local</codePool>
+<!--
+            <depends>
+                <SL_Signaturelink/>
+            </depends>
+-->
+        </OCM_Mods>
+    </modules>
+</config> 
