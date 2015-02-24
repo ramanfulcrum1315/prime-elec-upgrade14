@@ -1,0 +1,4 @@
+This is development branch.
+Code/design/module merging will be done by this branch.
+
+Master branch contains Magento Enterprise 1.14 fresh version only.
